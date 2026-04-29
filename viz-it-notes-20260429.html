@@ -6,94 +6,58 @@
 <title>IT培训赛道优质视频笔记分析 · 博为峰参考 · 2026-04-29</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  /* 莫兰迪色板 */
-  /* 主色：暖灰藕粉 #C9B8B0  深色：#6B5F5A  浅底：#F4F0ED  卡片底：#EDE8E4  点缀：#A8B5A2（低饱和鼠尾草绿）#B8C0CC（低饱和雾蓝） */
-
   body { background: #F4F0ED; font-family: 'PingFang SC', -apple-system, 'Helvetica Neue', sans-serif; color: #4A3F3A; }
   #main-content { width: 900px; margin: 0 auto; padding: 56px 0 100px; }
 
-  /* Header */
-  .header { background: #6B5F5A; color: #F4F0ED; border-radius: 20px; padding: 52px 52px 44px; margin-bottom: 16px; }
-  .header-label { font-size: 11px; letter-spacing: 0.14em; color: #C9B8B0; margin-bottom: 18px; text-transform: uppercase; }
-  .header h1 { font-size: 32px; font-weight: 700; line-height: 1.35; margin-bottom: 12px; color: #F4F0ED; }
-  .header-sub { font-size: 13px; color: #B0A09A; line-height: 1.8; }
-  .header-stats { display: flex; gap: 40px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(201,184,176,0.3); }
-  .header-stat .num { font-size: 34px; font-weight: 700; color: #EDE8E4; letter-spacing: -0.02em; }
-  .header-stat .label { font-size: 12px; color: #A09088; margin-top: 4px; }
+  .header { background: #6B5F5A; color: #F4F0ED; border-radius: 20px; padding: 48px 52px 40px; margin-bottom: 14px; }
+  .header-label { font-size: 11px; letter-spacing: 0.14em; color: #B0A09A; margin-bottom: 16px; text-transform: uppercase; }
+  .header h1 { font-size: 30px; font-weight: 700; line-height: 1.3; color: #F4F0ED; margin-bottom: 10px; }
+  .header-sub { font-size: 13px; color: #A09088; }
+  .header-stats { display: flex; gap: 40px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(201,184,176,0.25); }
+  .header-stat .num { font-size: 32px; font-weight: 700; color: #EDE8E4; }
+  .header-stat .label { font-size: 11px; color: #A09088; margin-top: 3px; }
 
-  /* 通用卡片 */
-  .card { background: #EDE8E4; border-radius: 16px; padding: 40px 44px; margin-bottom: 16px; }
-  .section-label { font-size: 11px; letter-spacing: 0.14em; color: #A09088; text-transform: uppercase; margin-bottom: 18px; }
-  .section-title { font-size: 21px; font-weight: 700; color: #4A3F3A; margin-bottom: 6px; }
-  .section-desc { font-size: 13px; color: #8C7D78; line-height: 1.7; margin-bottom: 28px; }
+  .card { background: #EDE8E4; border-radius: 16px; padding: 36px 44px; margin-bottom: 14px; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; color: #A09088; text-transform: uppercase; margin-bottom: 14px; }
+  .section-title { font-size: 20px; font-weight: 700; color: #4A3F3A; margin-bottom: 20px; }
 
-  /* 三主题 */
-  .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 0; }
-  .theme-item { background: #F4F0ED; border-radius: 12px; padding: 24px 22px; }
-  .theme-item.accent { background: #C9B8B0; }
-  .theme-num { font-size: 11px; letter-spacing: 0.1em; color: #A09088; margin-bottom: 12px; }
-  .theme-item.accent .theme-num { color: #6B5F5A; }
-  .theme-name { font-size: 14px; font-weight: 700; color: #4A3F3A; margin-bottom: 8px; line-height: 1.4; }
-  .theme-item.accent .theme-name { color: #3A302C; }
-  .theme-body { font-size: 12px; color: #8C7D78; line-height: 1.7; margin-bottom: 12px; }
-  .theme-item.accent .theme-body { color: #6B5F5A; }
-  .theme-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .theme-tags span { font-size: 11px; color: #8C7D78; background: rgba(106,95,90,0.1); padding: 3px 9px; border-radius: 4px; }
-  .theme-item.accent .theme-tags span { background: rgba(74,63,58,0.12); color: #6B5F5A; }
-  .tip { background: #D6CCC8; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 12px; color: #6B5F5A; line-height: 1.6; }
+  /* 行动建议卡 */
+  .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .action-item { border-radius: 12px; padding: 26px 22px; }
+  .action-item.a1 { background: #6B5F5A; }
+  .action-item.a2 { background: #A8B5A2; }
+  .action-item.a3 { background: #B8C0CC; }
+  .action-tag { font-size: 11px; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 12px; opacity: 0.7; color: #fff; }
+  .action-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.4; }
+  .action-cvr { font-size: 26px; font-weight: 700; color: #fff; opacity: 0.9; margin-bottom: 8px; }
+  .action-body { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .action-examples { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .action-ex { font-size: 12px; color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.1); border-radius: 6px; padding: 7px 10px; line-height: 1.5; }
 
-  /* Why */
-  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .why-item { background: #F4F0ED; border-radius: 12px; padding: 26px 24px; }
-  .why-item.wide { grid-column: span 2; }
-  .why-item.dark { background: #B8ADA8; }
-  .why-n { font-size: 11px; letter-spacing: 0.1em; color: #C9B8B0; margin-bottom: 12px; }
-  .why-item.dark .why-n { color: #8C7D78; }
-  .why-title { font-size: 14px; font-weight: 700; color: #4A3F3A; margin-bottom: 8px; }
-  .why-item.dark .why-title { color: #3A302C; }
-  .why-body { font-size: 12px; color: #8C7D78; line-height: 1.7; }
-  .why-item.dark .why-body { color: #6B5F5A; }
-  .why-note { font-size: 11px; color: #A09088; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(106,95,90,0.12); }
-  .why-item.dark .why-note { color: #7A6E68; border-color: rgba(74,63,58,0.15); }
-
-  /* HOW 表格 */
-  .how-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .how-table thead th { padding: 10px 0; text-align: left; font-size: 11px; letter-spacing: 0.1em; color: #A09088; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid #D6CCC8; }
-  .how-table td { padding: 16px 0; border-bottom: 1px solid #DDD8D4; vertical-align: top; line-height: 1.7; color: #6B5F5A; }
-  .how-table tr:last-child td { border-bottom: none; }
-  .how-table td:first-child { width: 60px; }
-  .how-table td:nth-child(2) { width: 120px; font-weight: 600; color: #4A3F3A; padding-right: 16px; }
-  .how-table td:last-child { width: 110px; font-size: 12px; color: #A09088; }
-  .tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 4px; display: inline-block; letter-spacing: 0.04em; }
-  .tag-p0 { background: #6B5F5A; color: #F4F0ED; }
-  .tag-p1 { background: #A8B5A2; color: #F4F0ED; }
-  .tag-p2 { background: #B8C0CC; color: #F4F0ED; }
+  /* 规律卡片 */
+  .insight-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .insight-item { background: #F4F0ED; border-radius: 12px; padding: 22px 18px; }
+  .insight-n { font-size: 11px; color: #C9B8B0; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .insight-title { font-size: 13px; font-weight: 700; color: #4A3F3A; margin-bottom: 6px; line-height: 1.4; }
+  .insight-body { font-size: 11px; color: #8C7D78; line-height: 1.6; }
 
   /* 笔记列表 */
-  .notes-group-label { font-size: 11px; letter-spacing: 0.12em; color: #A09088; text-transform: uppercase; padding: 18px 0 12px; border-bottom: 1px solid #D6CCC8; margin-bottom: 0; }
-  .note-row { display: flex; align-items: flex-start; gap: 18px; padding: 14px 0; border-bottom: 1px solid #E8E2DE; }
+  .notes-group-label { font-size: 11px; letter-spacing: 0.12em; color: #A09088; text-transform: uppercase; padding: 16px 0 10px; border-bottom: 1px solid #D6CCC8; }
+  .note-row { display: flex; align-items: flex-start; gap: 16px; padding: 12px 0; border-bottom: 1px solid #E8E2DE; }
   .note-row:last-child { border-bottom: none; }
-  .note-idx { font-size: 12px; color: #C9B8B0; width: 22px; flex-shrink: 0; padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .note-idx { font-size: 11px; color: #C9B8B0; width: 20px; flex-shrink: 0; padding-top: 3px; }
   .note-main { flex: 1; min-width: 0; }
-  .note-title { font-size: 13px; color: #4A3F3A; font-weight: 500; margin-bottom: 5px; line-height: 1.5; }
+  .note-title { font-size: 13px; color: #4A3F3A; font-weight: 500; margin-bottom: 4px; line-height: 1.5; }
   .note-title a { color: #4A3F3A; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #C9B8B0; }
   .note-title a:hover { text-decoration-color: #6B5F5A; }
   .note-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 11px; color: #A09088; }
-  .note-metric { color: #6B5F5A; }
   .note-metric strong { color: #4A3F3A; }
-  .note-highlight { border-left: 3px solid #C9B8B0; padding-left: 12px; }
+  .note-hl { border-left: 3px solid #C9B8B0; padding-left: 12px; }
 
-  /* 结论 */
-  .conclusion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .conclusion-item { background: #F4F0ED; border-radius: 12px; padding: 28px 24px; }
-  .conclusion-item:first-child { background: #6B5F5A; }
-  .conclusion-item:first-child .c-num { color: #8C7D78; }
-  .conclusion-item:first-child .c-title { color: #EDE8E4; }
-  .conclusion-item:first-child .c-body { color: #A09088; }
-  .c-num { font-size: 11px; letter-spacing: 0.1em; color: #C9B8B0; margin-bottom: 14px; }
-  .c-title { font-size: 15px; font-weight: 700; color: #4A3F3A; margin-bottom: 8px; line-height: 1.4; }
-  .c-body { font-size: 12px; color: #8C7D78; line-height: 1.7; }
+  /* 内容类型标签 */
+  .note-type { font-size: 10px; padding: 2px 7px; border-radius: 3px; font-weight: 600; }
+  .type-cvr { background: #D6CCC8; color: #6B5F5A; }
+  .type-ctr { background: #D0D8CC; color: #5A6B56; }
 
   footer { text-align: center; padding: 48px 0 20px; font-size: 11px; color: #C9B8B0; letter-spacing: 0.08em; }
 </style>
@@ -105,151 +69,114 @@
   <div class="header">
     <div class="header-label">IT培训赛道 · 视频笔记联合分析 · 2026-04-29</div>
     <h1>优质视频笔记分析<br>博为峰内容策略参考</h1>
-    <div class="header-sub">分析范围：博为峰账户竞价跑量 Top20 + IT赛道自然流量 Top10，共30篇笔记<br>数据来源：Pocket 元数据 + RedBI 取数文档</div>
+    <div class="header-sub">竞价跑量 Top20 + IT赛道自然流量 Top10，共30篇</div>
     <div class="header-stats">
-      <div class="header-stat"><div class="num">30</div><div class="label">篇笔记</div></div>
-      <div class="header-stat"><div class="num">4</div><div class="label">爆款模式</div></div>
+      <div class="header-stat"><div class="num">30篇</div><div class="label">分析笔记</div></div>
       <div class="header-stat"><div class="num">9.6%</div><div class="label">最高 CVR</div></div>
       <div class="header-stat"><div class="num">15.7%</div><div class="label">最高 CTR</div></div>
+      <div class="header-stat"><div class="num">3类</div><div class="label">核心内容模式</div></div>
     </div>
   </div>
 
-  <!-- WHAT -->
+  <!-- 行动建议（最重要，放最前） -->
   <div class="card">
-    <div class="section-label">01 · What</div>
-    <div class="section-title">这些笔记在讲什么？</div>
-    <div class="section-desc">三大内容主题，覆盖竞价与自然流量两个维度</div>
-    <div class="theme-grid">
-      <div class="theme-item accent">
-        <div class="theme-num">01 · 竞价跑量最强</div>
-        <div class="theme-name">Excel / Office 技能教学</div>
-        <div class="theme-body">标题全是干货承诺。CES 最高笔记（环球青藤 Excel 系列）点赞+收藏均过万，消耗和互动双高。</div>
-        <div class="theme-tags"><span>透视表+切片器</span><span>VLOOKUP函数</span><span>Excel公式</span></div>
+    <div class="section-label">博为峰该做什么</div>
+    <div class="section-title">三个内容方向，按优先级执行</div>
+    <div class="action-grid">
+      <div class="action-item a1">
+        <div class="action-tag">P0 · 立即做</div>
+        <div class="action-cvr">CVR 5-9%</div>
+        <div class="action-title">就业承诺型</div>
+        <div class="action-body">直接说结果，CVR 全场最高，高意向用户收割利器</div>
+        <div class="action-examples">
+          <div class="action-ex">来博为峰学软件测试，从简历到offer帮你搞定</div>
+          <div class="action-ex">嵌入式零基础，3个月拿下第一份offer</div>
+        </div>
       </div>
-      <div class="theme-item">
-        <div class="theme-num">02 · 情感共鸣型</div>
-        <div class="theme-name">游戏建模 / 创意技能</div>
-        <div class="theme-body">「自学 vs 报班」「老炮」「逆天改命」——用身份代入和对比叙事做钩子，先制造差距感再引导入局。</div>
-        <div class="theme-tags"><span>学习差距对比</span><span>身份故事</span><span>就业承诺</span></div>
+      <div class="action-item a2">
+        <div class="action-tag">P0 · 立即做</div>
+        <div class="action-cvr">CVR 2-3%</div>
+        <div class="action-title">自学 vs 报班对比型</div>
+        <div class="action-body">命中决策焦虑，不卖课，让用户自己得出"报班更值"的结论</div>
+        <div class="action-examples">
+          <div class="action-ex">软件测试自学3个月 vs 报班3个月，薪资差多少</div>
+          <div class="action-ex">零基础自学Java能找到工作吗？</div>
+        </div>
       </div>
-      <div class="theme-item">
-        <div class="theme-num">03 · 自然流量主力</div>
-        <div class="theme-name">Python 自学干货</div>
-        <div class="theme-body">自然流量 Top10 里 Python 笔记占半壁江山，用强烈主观视角和真实感打动用户。</div>
-        <div class="theme-tags"><span>穷学生自学</span><span>2周速成</span><span>安装教程</span></div>
-      </div>
-    </div>
-    <div class="tip">差异亮点：就业承诺型笔记（「无数offer」「简历面试一条龙」）数量少但 CVR 极高（5-9%），是高意向用户的精准钩子</div>
-  </div>
-
-  <!-- WHY -->
-  <div class="card">
-    <div class="section-label">02 · Why</div>
-    <div class="section-title">为什么这些内容表现好？</div>
-    <div class="section-desc">5条共通爆款机制</div>
-    <div class="why-grid">
-      <div class="why-item dark">
-        <div class="why-n">01</div>
-        <div class="why-title">强钩子标题，制造信息缺口</div>
-        <div class="why-body">标题全部采用「悬念/对比/数字」结构。「差距能有多大？」「3个月让客户主动找你」「2周搞定基础」——让用户不点进来就觉得亏了。</div>
-        <div class="why-note">没有一条标题说「报名XX课程」，都是内容钩子而非广告语</div>
-      </div>
-      <div class="why-item">
-        <div class="why-n">02</div>
-        <div class="why-title">明确的用户身份锚定</div>
-        <div class="why-body">「07年女生」「穷学生」「零基础小白」「蓝桥杯参赛」——每条内容都在说"这是给谁看的"，用户看到标题就能自我代入，大幅提升点击欲望。</div>
-      </div>
-      <div class="why-item">
-        <div class="why-n">03</div>
-        <div class="why-title">Excel 系列的收藏机制</div>
-        <div class="why-body">收藏量是点赞量的 1~1.5 倍（透视表：点赞 12,333 vs 收藏 13,729），用户"想以后用到"，高收藏率意味着更长内容生命周期，加投 ROI 持续稳定。</div>
-      </div>
-      <div class="why-item">
-        <div class="why-n">04</div>
-        <div class="why-title">真实感 / 情绪共鸣 高于制作精度</div>
-        <div class="why-body">Python 自然流量 CES 最高（23,717）的笔记走知识卡片路线。「穷学生自学 Python 骂醒一个是一个」用挑衅语气制造共鸣，情绪比精致制作更重要。</div>
-      </div>
-      <div class="why-item wide">
-        <div class="why-n">05</div>
-        <div class="why-title">自学 vs 报班的决策焦虑</div>
-        <div class="why-body">「自学 vs 报班，游戏建模的差距能有多大」CVR 3.26% 稳居 Top——直接命中用户最核心的决策卡点，看完之后"报班"变成理性选择而非被推销。这是 IT 培训赛道最高效的转化逻辑：不卖课，而是帮用户做决定。</div>
-        <div class="why-note">决策焦虑型 = CVR 最稳定（2-3%+），适合博为峰长期跑量</div>
+      <div class="action-item a3">
+        <div class="action-tag">P1 · 持续做</div>
+        <div class="action-cvr">CTR 5-15%</div>
+        <div class="action-title">干货技能教学型</div>
+        <div class="action-body">每集一个知识点，用户收藏后反复来看，长尾流量持续跑量</div>
+        <div class="action-examples">
+          <div class="action-ex">软件测试用例这样写，面试官直接给你过</div>
+          <div class="action-ex">Selenium自动化3个核心用法，零基础也能学</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- HOW -->
+  <!-- 爆款规律 -->
   <div class="card">
-    <div class="section-label">03 · How</div>
-    <div class="section-title">博为峰复制打法</div>
-    <div class="section-desc">软件测试赛道 · 按优先级执行</div>
-    <table class="how-table">
-      <thead>
-        <tr>
-          <th>优先级</th>
-          <th>方向</th>
-          <th>标题示例</th>
-          <th>预期效果</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="tag tag-p0">P0</span></td>
-          <td>自学 vs 报班对比型</td>
-          <td>「软件测试自学3个月 vs 报班3个月，真实薪资差多少」<br>「零基础自学Java能找到工作吗？报了班的人来告诉你」</td>
-          <td>CVR 2-3%+<br>高意向决策期</td>
-        </tr>
-        <tr>
-          <td><span class="tag tag-p0">P0</span></td>
-          <td>就业承诺型</td>
-          <td>「来博为峰学软件测试，从简历到offer帮你搞定」<br>「嵌入式零基础，3个月拿下第一份offer」</td>
-          <td>CVR 5-9%<br>最高转化</td>
-        </tr>
-        <tr>
-          <td><span class="tag tag-p1">P1</span></td>
-          <td>干货技能教学型</td>
-          <td>「软件测试用例这样写，面试官直接给你过」<br>「Selenium自动化3个核心用法，零基础也能学」</td>
-          <td>CTR 5-15%<br>收藏撑长尾</td>
-        </tr>
-        <tr>
-          <td><span class="tag tag-p2">P2</span></td>
-          <td>入门焦虑型</td>
-          <td>「软件测试零基础没经验怎么入行，一个视频讲清楚」<br>「2026软件测试行业现状，还值不值得入行」</td>
-          <td>对应高搜索量<br>焦虑词流量</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="section-label">爆款内容共同点</div>
+    <div class="section-title">5条规律</div>
+    <div class="insight-grid">
+      <div class="insight-item">
+        <div class="insight-n">01</div>
+        <div class="insight-title">标题制造信息缺口</div>
+        <div class="insight-body">「差距能有多大？」「3个月让客户主动找你」，让用户不点进来就觉得亏了</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-n">02</div>
+        <div class="insight-title">明确说给谁看</div>
+        <div class="insight-body">「07年女生」「穷学生」「零基础小白」，身份锚定让用户秒代入</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-n">03</div>
+        <div class="insight-title">收藏量 > 点赞量</div>
+        <div class="insight-body">Excel系列收藏量是点赞量的1.5倍，说明用户想"留着以后用"，内容生命周期更长</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-n">04</div>
+        <div class="insight-title">情绪 > 制作精度</div>
+        <div class="insight-body">「穷学生自学Python骂醒一个是一个」CES 8,901，挑衅语气比精致制作更管用</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-n">05</div>
+        <div class="insight-title">Python占自然流量半壁</div>
+        <div class="insight-body">自然流量Top10里Python笔记近半，赛道天然热度高，值得持续布局</div>
+      </div>
+    </div>
   </div>
 
   <!-- 竞价跑量 Top20 -->
   <div class="card">
-    <div class="section-label">04 · 竞价跑量 Top20</div>
-    <div class="section-title">竞价跑量笔记明细</div>
-    <div class="section-desc">按消耗流水排序，标注关键指标与内容类型</div>
+    <div class="section-label">竞价跑量 Top20</div>
+    <div class="section-title">笔记明细</div>
 
-    <div class="notes-group-label">高 CVR 笔记 · 就业承诺 / 决策焦虑型</div>
-    <div class="note-row note-highlight">
+    <div class="notes-group-label">高 CVR · 就业承诺 / 决策焦虑型</div>
+    <div class="note-row note-hl">
       <div class="note-idx">01</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/68c0fae8000000001b020eb1" target="_blank">不止教技术 嵌入式就业班 简历面试一条龙</a></div>
-        <div class="note-meta"><span class="note-metric">CTR <strong>0.90%</strong></span><span class="note-metric">CVR <strong>9.63%</strong></span><span>就业承诺型</span></div>
+        <div class="note-meta"><span class="note-metric">CTR <strong>0.90%</strong></span><span class="note-metric">CVR <strong>9.63%</strong></span><span class="note-type type-cvr">就业承诺</span></div>
       </div>
     </div>
-    <div class="note-row note-highlight">
+    <div class="note-row note-hl">
       <div class="note-idx">02</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/68adb610000000001c0330f7" target="_blank">搭子说：来粤嵌学嵌入式轻松拿下无数offer</a></div>
-        <div class="note-meta"><span>A粤嵌IT教育</span><span class="note-metric">CVR <strong>5.62%</strong></span><span class="note-metric">CES <strong>4,682</strong></span></div>
+        <div class="note-meta"><span>A粤嵌IT教育</span><span class="note-metric">CVR <strong>5.62%</strong></span><span class="note-metric">CES <strong>4,682</strong></span><span class="note-type type-cvr">就业承诺</span></div>
       </div>
     </div>
-    <div class="note-row note-highlight">
+    <div class="note-row note-hl">
       <div class="note-idx">03</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/69cf35a7000000001a030293" target="_blank">自学 vs 报班，游戏建模的差距能有多大？</a></div>
-        <div class="note-meta"><span>小梵学长-游戏建模</span><span class="note-metric">CVR <strong>3.26%</strong></span><span class="note-metric">CES <strong>5,900</strong></span></div>
+        <div class="note-meta"><span>小梵学长-游戏建模</span><span class="note-metric">CVR <strong>3.26%</strong></span><span class="note-metric">CES <strong>5,900</strong></span><span class="note-type type-cvr">决策焦虑</span></div>
       </div>
     </div>
-    <div class="note-row note-highlight">
+    <div class="note-row note-hl">
       <div class="note-idx">04</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/68b02988000000001d01d767" target="_blank">180天 大佬让你的建模逆天改命</a></div>
@@ -257,26 +184,26 @@
       </div>
     </div>
 
-    <div class="notes-group-label" style="margin-top:8px">高 CTR 笔记 · Excel干货教学型</div>
+    <div class="notes-group-label" style="margin-top:6px">高 CTR · Excel干货教学型</div>
     <div class="note-row">
       <div class="note-idx">01</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/684266b30000000023014f15" target="_blank">做Excel表格，VLOOKUP函数的</a></div>
-        <div class="note-meta"><span>环球青藤Excel</span><span class="note-metric">CTR <strong>15.70%</strong></span><span class="note-metric">CES <strong>14,975</strong></span></div>
+        <div class="note-meta"><span>环球青藤Excel</span><span class="note-metric">CTR <strong>15.70%</strong></span><span class="note-metric">CES <strong>14,975</strong></span><span class="note-type type-ctr">干货教学</span></div>
       </div>
     </div>
     <div class="note-row">
       <div class="note-idx">02</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/684bcb5d000000002300dcfb" target="_blank">学会这5个Excel函数</a></div>
-        <div class="note-meta"><span>环球青藤课堂</span><span class="note-metric">CTR <strong>14.39%</strong></span><span class="note-metric">CES <strong>3,309</strong></span></div>
+        <div class="note-meta"><span>环球青藤课堂</span><span class="note-metric">CTR <strong>14.39%</strong></span><span class="note-metric">CES <strong>3,309</strong></span><span class="note-type type-ctr">干货教学</span></div>
       </div>
     </div>
     <div class="note-row">
       <div class="note-idx">03</div>
       <div class="note-main">
         <div class="note-title"><a href="https://www.xiaohongshu.com/explore/6870ba30000000000d018b66" target="_blank">还不会用数据透视表+切片器+透视图呢？</a></div>
-        <div class="note-meta"><span>环球青藤Excel</span><span class="note-metric">CTR <strong>12.54%</strong></span><span class="note-metric">CES <strong>31,821</strong></span></div>
+        <div class="note-meta"><span>环球青藤Excel</span><span class="note-metric">CTR <strong>12.54%</strong></span><span class="note-metric">CES <strong>31,821</strong></span><span class="note-type type-ctr">干货教学</span></div>
       </div>
     </div>
     <div class="note-row">
@@ -294,7 +221,7 @@
       </div>
     </div>
 
-    <div class="notes-group-label" style="margin-top:8px">其余跑量笔记</div>
+    <div class="notes-group-label" style="margin-top:6px">其余跑量笔记</div>
     <div class="note-row"><div class="note-idx">06</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/69a57247000000002303bce5" target="_blank">07年女生勇闯烘焙学校 欧米奇上课的一天</a></div><div class="note-meta"><span>郑州欧米奇</span><span class="note-metric">CTR <strong>6.83%</strong></span><span class="note-metric">CES <strong>3,048</strong></span></div></div></div>
     <div class="note-row"><div class="note-idx">07</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/6867a6880000000012017d80" target="_blank">不会用数据透视表+切片器+透视图</a></div><div class="note-meta"><span>环球青藤课堂</span><span class="note-metric">CTR <strong>6.86%</strong></span><span class="note-metric">CES <strong>39,034</strong></span></div></div></div>
     <div class="note-row"><div class="note-idx">08</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/6694ce470000000025007d17" target="_blank">透视表+切片器+热力图 领导被我直接拿捏</a></div><div class="note-meta"><span class="note-metric">CTR <strong>5.45%</strong></span><span class="note-metric">CVR <strong>1.05%</strong></span></div></div></div>
@@ -310,11 +237,10 @@
 
   <!-- 自然流量 Top10 -->
   <div class="card">
-    <div class="section-label">05 · 自然流量 Top10</div>
-    <div class="section-title">自然流量爆款笔记</div>
-    <div class="section-desc">IT赛道 · 近30天 CES 排序</div>
+    <div class="section-label">自然流量 Top10</div>
+    <div class="section-title">IT赛道近30天 CES 排序</div>
 
-    <div class="note-row note-highlight"><div class="note-idx">01</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/68e271eb00000000070156b4" target="_blank">python常用关键字，熟记</a></div><div class="note-meta"><span>摆烂咸鱼ij2</span><span class="note-metric">CES <strong>23,717</strong></span><span class="note-metric">赞 <strong>9,318</strong></span><span class="note-metric">藏 <strong>8,931</strong></span></div></div></div>
+    <div class="note-row note-hl"><div class="note-idx">01</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/68e271eb00000000070156b4" target="_blank">python常用关键字，熟记</a></div><div class="note-meta"><span>摆烂咸鱼ij2</span><span class="note-metric">CES <strong>23,717</strong></span><span class="note-metric">赞 <strong>9,318</strong></span><span class="note-metric">藏 <strong>8,931</strong></span></div></div></div>
     <div class="note-row"><div class="note-idx">02</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/6909c44100000000040075e5" target="_blank">个人认为目前自学Python进步最快的方式</a></div><div class="note-meta"><span>云胡不喜</span><span class="note-metric">CES <strong>17,703</strong></span><span class="note-metric">赞 <strong>6,269</strong></span><span class="note-metric">藏 <strong>8,602</strong></span></div></div></div>
     <div class="note-row"><div class="note-idx">03</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/68bbd2d8000000001c00959c" target="_blank">（自然流量爆款）</a></div><div class="note-meta"><span>多肉</span><span class="note-metric">CES <strong>12,068</strong></span><span class="note-metric">赞 <strong>4,422</strong></span><span class="note-metric">藏 <strong>2,442</strong></span></div></div></div>
     <div class="note-row"><div class="note-idx">04</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/69b7f226000000001a030000" target="_blank">2026版Python+Pycharm安装教程小白也能学</a></div><div class="note-meta"><span>数数鲨手</span><span class="note-metric">CES <strong>11,789</strong></span><span class="note-metric">赞 <strong>3,266</strong></span><span class="note-metric">藏 <strong>2,103</strong></span></div></div></div>
@@ -326,34 +252,11 @@
     <div class="note-row"><div class="note-idx">10</div><div class="note-main"><div class="note-title"><a href="https://www.xiaohongshu.com/explore/675ef39a000000000603c84b" target="_blank">（自然流量爆款）</a></div><div class="note-meta"><span>—</span></div></div></div>
   </div>
 
-  <!-- 结论 -->
-  <div class="card" style="padding-bottom:0;overflow:hidden">
-    <div class="section-label">06 · 核心结论</div>
-    <div class="section-title" style="margin-bottom:24px">三条可复用的内容规律</div>
-    <div class="conclusion-grid" style="margin:0 -44px -40px">
-      <div class="conclusion-item" style="border-radius:0 0 0 16px">
-        <div class="c-num">01</div>
-        <div class="c-title">就业承诺型<br>CVR 5-9%</div>
-        <div class="c-body">「一条龙 / 无数offer」钩子最能收割高意向用户，是博为峰软件测试方向的首选切入点</div>
-      </div>
-      <div class="conclusion-item">
-        <div class="c-num">02</div>
-        <div class="c-title">自学 vs 报班<br>CVR 稳定 2-3%+</div>
-        <div class="c-body">直接命中决策焦虑，不卖课而是帮用户做决定，IT培训最高效的转化逻辑</div>
-      </div>
-      <div class="conclusion-item" style="border-radius:0 0 16px 0">
-        <div class="c-num">03</div>
-        <div class="c-title">干货技能型<br>CTR 最高 5-15%</div>
-        <div class="c-body">Excel / 代码知识点单集卡片形式，靠收藏撑长尾，适合加投后持续稳定跑量</div>
-      </div>
-    </div>
-  </div>
-
   <footer>IT培训赛道优质视频笔记分析 · 博为峰参考 · 2026-04-29</footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<button onclick="downloadImage()" style="position:fixed;bottom:24px;right:24px;background:#6B5F5A;color:#F4F0ED;border:none;border-radius:8px;padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.04em;box-shadow:0 4px 16px rgba(106,95,90,0.25);">下载长图</button>
+<button onclick="downloadImage()" style="position:fixed;bottom:24px;right:24px;background:#6B5F5A;color:#F4F0ED;border:none;border-radius:8px;padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.04em;box-shadow:0 4px 16px rgba(106,95,90,0.2);">下载长图</button>
 <script>
 function downloadImage() {
   const el = document.getElementById('main-content');
