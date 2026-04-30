@@ -9,7 +9,6 @@
 body { background:#F4F0ED; font-family:'PingFang SC',-apple-system,'Helvetica Neue',sans-serif; color:#4A3F3A; }
 #main { width:900px; margin:0 auto; padding:56px 0 100px; }
 
-/* ── Header ── */
 .hd { background:#4A3F3A; border-radius:20px; padding:44px 52px 36px; margin-bottom:12px; }
 .hd-label { font-size:11px; letter-spacing:.14em; color:#9A8D86; margin-bottom:14px; text-transform:uppercase; }
 .hd h1 { font-size:28px; font-weight:700; color:#F4F0ED; line-height:1.3; margin-bottom:6px; }
@@ -17,16 +16,13 @@ body { background:#F4F0ED; font-family:'PingFang SC',-apple-system,'Helvetica Ne
 .hd-pills { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
 .hd-pill { font-size:11px; padding:4px 12px; border-radius:20px; background:rgba(255,255,255,.1); color:#C9B8B0; }
 
-/* ── Card ── */
 .card { background:#EDE8E4; border-radius:16px; padding:32px 40px; margin-bottom:12px; }
 .sec-label { font-size:11px; letter-spacing:.14em; color:#A09088; text-transform:uppercase; margin-bottom:10px; }
 .sec-title { font-size:19px; font-weight:700; color:#4A3F3A; margin-bottom:6px; line-height:1.35; }
 .sec-sub { font-size:12px; color:#8C7D78; margin-bottom:20px; line-height:1.6; }
-
-/* ── 章节编号 ── */
 .step-tag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.12em; padding:2px 8px; border-radius:3px; background:#4A3F3A; color:#F4F0ED; margin-bottom:14px; }
 
-/* ── 一、为什么加投视频 ── */
+/* 01 成本 */
 .cost-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .cost-box { background:#F4F0ED; border-radius:12px; padding:22px 20px; }
 .cost-box-title { font-size:11px; color:#A09088; letter-spacing:.1em; margin-bottom:14px; }
@@ -44,22 +40,19 @@ body { background:#F4F0ED; font-family:'PingFang SC',-apple-system,'Helvetica Ne
 .bar-fill { height:8px; border-radius:4px; }
 .note-small { font-size:11px; color:#8C7D78; margin-top:12px; line-height:1.6; }
 
-/* ── 二、用户搜什么 ── */
+/* 02 搜索词 */
 .kw-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .kw-box { background:#F4F0ED; border-radius:12px; padding:20px 18px; }
 .kw-box-title { font-size:10px; font-weight:700; letter-spacing:.1em; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E8E2DE; }
-.kw-row { display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid #EDE8E4; font-size:12px; }
+.kw-row { display:flex; align-items:center; padding:6px 0; border-bottom:1px solid #EDE8E4; font-size:12px; gap:8px; }
 .kw-row:last-child { border-bottom:none; }
-.kw-row span:first-child { color:#4A3F3A; }
-.kw-row span:last-child { color:#8C7D78; font-size:11px; }
-.kw-row.hi span:first-child { font-weight:700; color:#4A3F3A; }
-.kw-row.hi span:last-child { font-weight:700; color:#A8B5A2; }
-.kw-insight-list { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
-.kw-insight { background:#F4F0ED; border-radius:8px; padding:12px 14px; }
-.kw-insight-tag { font-size:10px; font-weight:700; letter-spacing:.08em; margin-bottom:5px; }
-.kw-insight-body { font-size:12px; color:#4A3F3A; line-height:1.6; }
+.kw-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.kw-row.hi .kw-dot { background:#A8B5A2; }
+.kw-row .kw-dot { background:#D6CCC8; }
+.kw-row.hi span { font-weight:600; color:#4A3F3A; }
+.kw-row span { color:#6B5F5A; }
 
-/* ── 四、爆款规律 ── */
+/* 03 爆款规律 */
 .pattern-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
 .pattern-card { border-radius:12px; padding:22px 20px; }
 .pattern-card.p1 { background:#6B5F5A; }
@@ -70,16 +63,15 @@ body { background:#F4F0ED; font-family:'PingFang SC',-apple-system,'Helvetica Ne
 .p-name { font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; }
 .p-metric { font-size:22px; font-weight:700; color:#fff; margin-bottom:6px; }
 .p-metric span { font-size:11px; font-weight:400; opacity:.8; }
-.p-body { font-size:12px; color:rgba(255,255,255,.85); line-height:1.65; }
-.p-eg { margin-top:10px; font-size:11px; color:rgba(255,255,255,.7); font-style:italic; background:rgba(255,255,255,.12); border-radius:5px; padding:6px 10px; line-height:1.5; }
-
+.p-body { font-size:12px; color:rgba(255,255,255,.9); line-height:1.65; }
+.p-eg { margin-top:10px; font-size:11px; color:rgba(255,255,255,.8); font-style:italic; background:rgba(255,255,255,.12); border-radius:5px; padding:6px 10px; line-height:1.5; }
 .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .why-item { background:#F4F0ED; border-radius:10px; padding:18px 16px; }
 .why-n { font-size:28px; font-weight:700; color:#E8E2DE; margin-bottom:6px; line-height:1; }
 .why-title { font-size:13px; font-weight:700; color:#4A3F3A; margin-bottom:6px; }
 .why-body { font-size:12px; color:#8C7D78; line-height:1.65; }
 
-/* ── 五、执行方向 ── */
+/* 04 执行方向 */
 .action-list { display:flex; flex-direction:column; gap:10px; }
 .action-row { display:grid; grid-template-columns:56px 1fr 1fr auto; gap:16px; align-items:start; background:#F4F0ED; border-radius:10px; padding:16px 18px; }
 .action-p0 { border-left:3px solid #6B5F5A; }
@@ -93,6 +85,30 @@ body { background:#F4F0ED; font-family:'PingFang SC',-apple-system,'Helvetica Ne
 .action-cvr span { display:block; font-size:10px; font-weight:400; color:#A09088; }
 .tip-box { margin-top:14px; background:#4A3F3A; border-radius:10px; padding:14px 18px; font-size:12px; color:#C9B8B0; line-height:1.7; }
 .tip-box strong { color:#F4F0ED; }
+
+/* 笔记列表 */
+.notes-section-title { font-size:12px; font-weight:700; color:#A09088; letter-spacing:.1em; text-transform:uppercase; padding:14px 0 8px; border-bottom:1px solid #D6CCC8; margin-top:4px; }
+.note-row { display:flex; align-items:flex-start; gap:14px; padding:10px 0; border-bottom:1px solid #E8E2DE; }
+.note-row:last-child { border-bottom:none; }
+.note-idx { font-size:11px; color:#C9B8B0; width:18px; flex-shrink:0; padding-top:2px; }
+.note-main { flex:1; min-width:0; }
+.note-title-link { font-size:13px; color:#4A3F3A; font-weight:500; text-decoration:underline; text-underline-offset:3px; text-decoration-color:#C9B8B0; line-height:1.5; cursor:pointer; }
+.note-title-link:hover { text-decoration-color:#6B5F5A; color:#6B5F5A; }
+.note-hint { font-size:11px; color:#C9B8B0; margin-left:4px; }
+.note-tags { display:flex; gap:6px; margin-top:4px; flex-wrap:wrap; }
+.note-tag { font-size:10px; padding:1px 7px; border-radius:3px; }
+.tag-cvr { background:#D6CCC8; color:#6B5F5A; }
+.tag-ctr { background:#D0D8CC; color:#5A6B56; }
+.tag-story { background:#DDD8D0; color:#6B5F5A; }
+
+/* 折叠 */
+.note-detail { display:none; margin-top:8px; padding:10px 12px; background:#F4F0ED; border-radius:8px; }
+.note-detail.open { display:block; }
+.nd-section { font-size:10px; color:#A09088; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; }
+.nd-insight { font-size:12px; color:#6B5F5A; line-height:1.65; margin-bottom:8px; }
+.nd-todo-label { font-size:10px; color:#A8B5A2; letter-spacing:.08em; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.nd-todo { font-size:12px; color:#4A3F3A; line-height:1.65; font-weight:500; }
+.nd-link { font-size:11px; color:#6B5F5A; margin-top:8px; display:inline-block; text-decoration:underline; text-underline-offset:2px; }
 
 footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; letter-spacing:.08em; }
 </style>
@@ -116,11 +132,11 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
   </div>
 </div>
 
-<!-- 一、为什么加投视频 -->
+<!-- 01 为什么加投视频 -->
 <div class="card">
   <div class="step-tag">01 · 为什么加投视频</div>
-  <div class="sec-title">视频单留资成本低 12.7%，但视频占比还差大盘 4.9pp</div>
-  <div class="sec-sub">前端曝光/点击成本视频更高，但转化链路效率更高，最终每条留资的综合成本更低。</div>
+  <div class="sec-title">视频单留资成本低 12.7%，博为峰视频占比还差大盘 4.9pp</div>
+  <div class="sec-sub">前端曝光/点击成本视频更高，但转化链路效率更高，每条留资综合成本更低。</div>
   <div class="cost-grid">
     <div class="cost-box">
       <div class="cost-box-title">成本全景对比</div>
@@ -143,65 +159,59 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
           <div class="bar-item-label"><span style="color:#8C7D78">博为峰当前</span><span style="color:#B8C0CC">27.3%</span></div>
           <div class="bar-bg"><div class="bar-fill" style="width:54.6%;background:#B8C0CC"></div></div>
         </div>
-        <div>
-          <div class="bar-item-label"><span style="color:#8C7D78">建议目标</span><span style="color:#6B5F5A">40-50%</span></div>
-          <div class="bar-bg"><div class="bar-fill" style="width:90%;background:#6B5F5A"></div></div>
-        </div>
       </div>
-      <div class="note-small">差 4.9pp 追上大盘，往 40-50% 冲可持续享受转化成本红利</div>
+      <div class="note-small">差 4.9pp 追上大盘，加投视频既能跟上趋势，又能享受转化成本红利</div>
     </div>
   </div>
 </div>
 
-<!-- 二、用户在搜什么 -->
+<!-- 02 用户在搜什么 -->
 <div class="card">
   <div class="step-tag">02 · 用户在搜什么</div>
-  <div class="sec-title">软件测试焦虑词破万搜索，直接对应博为峰主营业务</div>
-  <div class="sec-sub">三类关键词，选题直接抄。</div>
+  <div class="sec-title">软件测试焦虑词直接对应博为峰主营业务</div>
+  <div class="sec-sub">三类关键词，选题可直接对应。</div>
   <div class="kw-grid">
     <div>
-      <div class="kw-box">
+      <div class="kw-box" style="margin-bottom:10px">
         <div class="kw-box-title" style="color:#A8B5A2">软件测试焦虑词（博为峰主战场）</div>
-        <div class="kw-row hi"><span>软件测试</span><span>6.7万/月</span></div>
-        <div class="kw-row hi"><span>软件测试没有经验怎么入行</span><span>1.3万/月</span></div>
-        <div class="kw-row hi"><span>软件测试简历</span><span>1.2万/月</span></div>
-        <div class="kw-row hi"><span>软件测试行业现状</span><span>1.0万/月</span></div>
-        <div class="kw-row"><span>测试工程师</span><span>1.5万/月</span></div>
-        <div class="kw-row"><span>程序员转行做什么</span><span>1.0万/月</span></div>
+        <div class="kw-row hi"><div class="kw-dot"></div><span>软件测试</span></div>
+        <div class="kw-row hi"><div class="kw-dot"></div><span>软件测试没有经验怎么入行</span></div>
+        <div class="kw-row hi"><div class="kw-dot"></div><span>软件测试简历</span></div>
+        <div class="kw-row hi"><div class="kw-dot"></div><span>软件测试行业现状</span></div>
+        <div class="kw-row"><div class="kw-dot"></div><span>测试工程师</span></div>
+        <div class="kw-row"><div class="kw-dot"></div><span>程序员转行做什么</span></div>
       </div>
-      <div class="kw-box" style="margin-top:10px">
+      <div class="kw-box">
         <div class="kw-box-title" style="color:#B8C0CC">AI焦虑词（趋势向上，1年涨3.2倍）</div>
-        <div class="kw-row"><span>程序员被ai取代</span><span>9360/月</span></div>
-        <div class="note-small" style="padding-top:8px">2026年Q1同比加速爆发，可作「AI时代测试工程师怎么转型」泛流量钩子</div>
+        <div class="kw-row"><div class="kw-dot" style="background:#B8C0CC"></div><span>程序员被ai取代</span></div>
+        <div class="note-small" style="padding-top:8px">可作「AI时代测试工程师怎么转型」泛流量钩子</div>
       </div>
     </div>
     <div class="kw-box">
       <div class="kw-box-title" style="color:#6B5F5A">Python系列（赛道最大流量池）</div>
-      <div class="kw-row"><span>python</span><span>17.1万/月</span></div>
-      <div class="kw-row"><span>python安装教程步骤</span><span>9.1万/月</span></div>
-      <div class="kw-row"><span>Python</span><span>6.1万/月</span></div>
-      <div class="kw-row"><span>python入门教程</span><span>4.5万/月</span></div>
-      <div class="kw-row"><span>蓝桥杯python</span><span>3.1万/月</span></div>
-      <div class="kw-row"><span>python知识总结</span><span>2.2万/月</span></div>
-      <div class="kw-row"><span>python自学推荐</span><span>1.5万/月</span></div>
-      <div class="kw-row"><span>python基础知识</span><span>1.1万/月</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python安装教程步骤</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python入门教程</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>蓝桥杯python</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python知识总结</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python自学推荐</span></div>
+      <div class="kw-row"><div class="kw-dot" style="background:#6B5F5A"></div><span>python基础知识</span></div>
       <div class="note-small" style="padding-top:10px">若有Python课可重点布局；无课也可借「AI时代学Python还是学测试」做泛流量内容</div>
     </div>
   </div>
 </div>
 
-<!-- 四、爆款规律（先于行业样本出来，让逻辑流畅） -->
+<!-- 03 爆款规律 -->
 <div class="card">
   <div class="step-tag">03 · 行业爆款规律</div>
   <div class="sec-title">赛道头部笔记印证 4 大模式，三个共同点跑通转化</div>
-  <div class="sec-sub">基于竞价跑量 Top20 + 自然流量 Top10，共30篇笔记归纳。完整明细见 <a href="https://docs.xiaohongshu.com/doc/5d2e2616f90e4869f065a89a38d1f205" target="_blank" style="color:#6B5F5A">联合分析文档</a>。</div>
-
-  <div style="font-size:12px;color:#A09088;letter-spacing:.1em;margin-bottom:10px;text-transform:uppercase">四大内容模式</div>
+  <div class="sec-sub">基于竞价跑量 Top20 + 自然流量 Top10，共30篇笔记归纳。完整明细见下方附录。</div>
+  <div style="font-size:11px;color:#A09088;letter-spacing:.1em;margin-bottom:10px;text-transform:uppercase">四大内容模式</div>
   <div class="pattern-grid">
     <div class="pattern-card p1">
       <div class="p-badge">就业承诺型</div>
       <div class="p-metric">CVR 5–9%<span>最高转化</span></div>
-      <div class="p-body">直接说结果，命中已进入决策期的高意向用户，留资成本极低</div>
+      <div class="p-body">直接说结果，命中已进入决策期的高意向用户</div>
       <div class="p-eg">「无数offer」「简历面试一条龙」</div>
     </div>
     <div class="pattern-card p2">
@@ -213,23 +223,22 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
     <div class="pattern-card p3">
       <div class="p-badge">干货技能教学型</div>
       <div class="p-metric">CTR 5–15%<span>拓量利器</span></div>
-      <div class="p-body">Excel/Python 干货系列，收藏量远超点赞，内容生命周期长</div>
+      <div class="p-body">收藏量远超点赞，内容生命周期长，搜索流量稳定</div>
       <div class="p-eg">「VLOOKUP函数4种经典用法」</div>
     </div>
     <div class="pattern-card p4">
       <div class="p-badge">身份故事型</div>
       <div class="p-metric">CTR 中等<span>破圈拉新</span></div>
-      <div class="p-body">明确人物身份，强代入感，适合账号早期积累用户和破圈</div>
+      <div class="p-body">明确人物身份，强代入感，适合账号早期积累和破圈</div>
       <div class="p-eg">「07年女生」「穷学生」「老炮」</div>
     </div>
   </div>
-
-  <div style="font-size:12px;color:#A09088;letter-spacing:.1em;margin:20px 0 10px;text-transform:uppercase">三个共同点</div>
+  <div style="font-size:11px;color:#A09088;letter-spacing:.1em;margin:20px 0 10px;text-transform:uppercase">三个共同点</div>
   <div class="why-grid">
     <div class="why-item">
       <div class="why-n">01</div>
       <div class="why-title">标题制造信息缺口</div>
-      <div class="why-body">「差距能有多大？」「3个月让客户主动找你」，用户不点进来就觉得亏了。没有一条标题说「报名XX课程」。</div>
+      <div class="why-body">「差距能有多大？」「3个月让客户主动找你」，让用户不点进来就觉得亏了。没有一条标题说「报名XX课程」。</div>
     </div>
     <div class="why-item">
       <div class="why-n">02</div>
@@ -239,17 +248,16 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
     <div class="why-item">
       <div class="why-n">03</div>
       <div class="why-title">情绪真实感优先</div>
-      <div class="why-body">挑衅语气比精致制作更管用。Excel 系列收藏量是点赞量的 1.5 倍，实用留存价值比好看更重要。</div>
+      <div class="why-body">挑衅语气比精致制作更管用。Excel 系列收藏量是点赞量 1.5 倍，实用留存价值比好看更重要。</div>
     </div>
   </div>
 </div>
 
-<!-- 五、执行方向 -->
+<!-- 04 执行方向 -->
 <div class="card">
   <div class="step-tag">04 · 博为峰执行方向</div>
   <div class="sec-title">3 个方向，每方向起 3-5 条做 A/B</div>
   <div class="sec-sub">对应搜索词需求 + 行业高转化模式，优先从 P0 开始验证。</div>
-
   <div class="action-list">
     <div class="action-row action-p0">
       <div><span class="action-badge badge-p0">P0</span></div>
@@ -257,9 +265,7 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
         <div class="action-dir">就业承诺型</div>
         <div class="action-eg">「来博为峰学软件测试，从简历到offer帮你搞定」<br>「博为峰就业班，帮你拿下第一个测试offer」</div>
       </div>
-      <div>
-        <div class="action-eg" style="color:#6B5F5A;font-weight:500">对应模式：就业承诺型<br>命中：已进入决策期用户</div>
-      </div>
+      <div><div class="action-eg" style="color:#6B5F5A;font-weight:500">就业承诺型<br>命中决策期用户</div></div>
       <div class="action-cvr">CVR<br>5–9%<span>精准转化</span></div>
     </div>
     <div class="action-row action-p0">
@@ -268,9 +274,7 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
         <div class="action-dir">自学 vs 报班对比型</div>
         <div class="action-eg">「软件测试自学3个月 vs 报班3个月，真实薪资差多少」<br>「转行软件测试，自学 vs 培训哪个更香」</div>
       </div>
-      <div>
-        <div class="action-eg" style="color:#6B5F5A;font-weight:500">对应模式：自学 vs 报班对比型<br>命中：决策期犹豫用户</div>
-      </div>
+      <div><div class="action-eg" style="color:#6B5F5A;font-weight:500">自学 vs 报班对比型<br>命中犹豫期用户</div></div>
       <div class="action-cvr">CVR<br>2–3%<span>意向稳定</span></div>
     </div>
     <div class="action-row action-p1">
@@ -279,20 +283,307 @@ footer { text-align:center; padding:48px 0 20px; font-size:11px; color:#C9B8B0; 
         <div class="action-dir">入门焦虑型</div>
         <div class="action-eg">「软件测试没经验怎么入行，一个视频讲清楚」<br>「软件测试简历这样写，HR主动找你聊」<br>「软件测试2026行业现状，还值不值得入行」</div>
       </div>
-      <div>
-        <div class="action-eg" style="color:#8C7D78;font-weight:500">对应模式：干货技能教学型<br>命中：万级搜索焦虑词</div>
-      </div>
+      <div><div class="action-eg" style="color:#8C7D78;font-weight:500">干货技能教学型<br>命中万级搜索焦虑词</div></div>
       <div class="action-cvr" style="color:#B8C0CC">CTR<br>高<span>拓量长尾</span></div>
     </div>
   </div>
-
   <div class="tip-box">
-    <strong>封面文案原则：</strong>避免"招生简章"风格，用「问句/数字/对比」做封面主文案。封面不出现"报名""招生""优惠"——用内容吸引，用私信转化。
+    <strong>封面文案原则：</strong>避免"招生简章"风格，用「问句/数字/对比」做封面主文案。封面不出现"报名""招生""优惠"，用内容吸引，用私信转化。
+  </div>
+</div>
+
+<!-- 附录：笔记明细 -->
+<div class="card">
+  <div class="step-tag">附录 · 行业笔记明细</div>
+  <div class="sec-title">竞价跑量 Top20 + 自然流量 Top10</div>
+  <div class="sec-sub">点击笔记标题查看内容详情，数据仅作模式参考。</div>
+
+  <div class="notes-section-title">竞价跑量 Top20（按流水排序）</div>
+
+  <!-- 就业承诺 / 自学 vs 报班 -->
+  <div class="note-row">
+    <div class="note-idx">01</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/69cf35a7000000001a030293" target="_blank">自学 vs 报班，游戏建模的差距能有多大</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-cvr">自学 vs 报班对比型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「软件测试自学3个月 vs 报班3个月，真实薪资差多少」——对比结构让用户自己得出结论，比直接推销转化更自然。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">02</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/69a57247000000002303bce5" target="_blank">07年女生勇闯某培训学校，上课的一天</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-story">身份故事型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「00后女生学软件测试，3个月拿到第一份offer」——具体年份+身份锚定，让目标用户秒代入。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">03</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6694ce470000000025007d17" target="_blank">透视表+切片器+热力图 领导被我直接拿捏</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「学会这个测试技巧，让开发都对你刮目相看」——职场地位感知的场景化表达提升点击率。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">04</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6867a6880000000012017d80" target="_blank">不会用数据透视表+切片器+透视图</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">找软件测试赛道里的高频搜索但竞争未饱和的词，如「接口测试怎么做」「测试简历怎么写」，持续系列化布局。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">05</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/66596ce4000000001401ba95" target="_blank">VLOOKUP函数的4种经典用法</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「测试用例的4种设计方法」「Bug描述的3个要素」——数字+结构化的干货标题公式持续有效。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">06</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/66e40c43000000000c0196a7" target="_blank">学Excel表格函数公式运用必学的六大函数</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「软件测试必学的六大工具」「测试工程师必备的五种思维」——知识体系感的标题更容易被收藏。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">07</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/697b18250000000009038856" target="_blank">跟着老炮学游戏建模，3个月让客户主动找你</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-story">身份故事型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">讲师IP化，用「老炮讲测试」「10年测试老兵」等身份标签建立信任感，比机构号更有亲近感。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">08</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/68adb610000000001c0330f7" target="_blank">搭子说：来某机构学嵌入式轻松拿下无数offer</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-cvr">就业承诺型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">让真实学员以「搭子」视角拍摄，强调「学完拿offer」的具体结果，比机构自夸更有说服力。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">09</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/66a75de000000000270129c4" target="_blank">是谁发明的跨表自动查询数据</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「是谁规定测试必须写用例的？」「为什么测试工程师工资不比开发低？」——反常识疑问句提升点击欲望。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">10</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/693fdebd000000000d00ed12" target="_blank">你和建模老炮的差距，就差这一步</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-cvr">自学 vs 报班对比型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「你和拿offer的人，就差这一个测试技能」——用差距感激发焦虑，推动用户主动咨询。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">11</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/68b02988000000001d01d767" target="_blank">180天，大佬让你的建模逆天改命</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-story">身份故事型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「XX天从零基础到拿下第一份测试工作」——配合学员真实时间线做系列内容，量化学习周期降低门槛。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">12</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/68c0fae8000000001b020eb1" target="_blank">不止教技术，嵌入式就业班，简历面试一条龙</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-cvr">就业承诺型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「来博为峰学软件测试，从简历到offer全程搞定」——直接承诺结果，CVR 极高，是留资转化的核心打法。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">13</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/684266b30000000023014f15" target="_blank">做Excel表格，VLOOKUP函数的用法</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">软件测试也有高频考点，如「测试用例这样写」「Bug报告格式」，做成单集知识卡片，封面直接写技能点名称。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">14</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6870ba30000000000d018b66" target="_blank">还不会用数据透视表+切片器+透视图呢？</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">把一个核心技能点（如Selenium、接口测试）做成系列，每集一个用法，系列化布局同一搜索词，持续占流量。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">15</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6889942700000000250279c4" target="_blank">透视表如何用，切片器如何做，透视图如何做</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「接口测试怎么做（上）」「接口测试怎么做（下）」，系列分集让用户关注账号等更新。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">16</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/66d1966e000000001d01a36f" target="_blank">学会透视表+切片器+热力图，拿捏领导</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">注意</div><div class="nd-todo">封面和标题要和转化路径一致，封面引流之后内容里要有明确行动指引（留资/私信），否则浪费点击。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">17</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/66f92f8b000000001a020526" target="_blank">透视表+切片器+条件格式做报表，一个视频</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「一个视频搞懂软件测试入门」——高信息密度适合做全面科普型引流内容，用收藏价值带来长尾流量。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">18</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/672dd6ea000000001b02c854" target="_blank">做Excel表格，懂居中表头的技巧</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「懂这个测试思维，你就赢了大多数人」——优越感句式提升点击欲望。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">19</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/684bcb5d000000002300dcfb" target="_blank">学会这5个Excel函数</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「软件测试必会的5个工具」「面试必问的3个测试用例类型」——数字+具体内容的组合标题公式直接复用。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">20</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/69b274c40000000015020519" target="_blank">26软考有必要报班吗？软考自学能过吗？</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-cvr">自学 vs 报班对比型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「软件测试自学能找到工作吗？」「零基础能转行测试吗？」——直接回应目标用户搜索词，搜索场域精准引流。</div></div>
+    </div>
+  </div>
+
+  <div class="notes-section-title" style="margin-top:8px">自然流量 Top10（IT赛道，近30天互动量）</div>
+
+  <div class="note-row">
+    <div class="note-idx">01</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6909c44100000000040075e5" target="_blank">个人认为目前自学Python进步最快的方式</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-story">主观分享型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「个人认为软件测试入门最快的方式」——第一人称主观分享比机构推广更有可信度，适合账号早期种草。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">02</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/68bbd2d8000000001c00959c" target="_blank">（自然流量爆款）</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货教学类</span></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">03</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/69b7f226000000001a030000" target="_blank">2026版Python+Pycharm安装教程，小白也能学</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「2026最新版软件测试学习路线」「2026软件测试面试题更新」——每年更新版本号，持续占据时效性搜索词。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">04</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/67234b2d000000003c0195f7" target="_blank">（自然流量爆款）</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货教学类</span></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">05</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/68e271eb00000000070156b4" target="_blank">python常用关键字，熟记</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">知识卡片型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「软件测试常用命令，截图收藏」「接口测试必背参数，背下来面试不慌」——知识卡片配合收藏型标题，长尾流量强。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">06</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/675ef39a000000000603c84b" target="_blank">（自然流量爆款）</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货教学类</span></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">07</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/681c27a4000000002100a5e1" target="_blank">蓝桥杯一小时速成省三</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">若有相关资质考试，可做「XX考试备考攻略」——节点内容搜索意向明确，转化效率高。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">08</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6856391300000000120177b0" target="_blank">穷学生自学Python，骂醒一个是一个！！</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-story">主观分享型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「还在犹豫要不要学测试？被现实骂醒就晚了」——挑衅语气制造紧迫感，比温和劝说转化更强。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">09</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/6885a2f80000000011003044" target="_blank">2周搞定python基础知识｜第一天python入门</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「30天软件测试入门日记｜第1天」——日记体系列内容增加追更感，量化学习周期降低用户心理门槛。</div></div>
+    </div>
+  </div>
+  <div class="note-row">
+    <div class="note-idx">10</div>
+    <div class="note-main">
+      <div><a class="note-title-link" href="https://www.xiaohongshu.com/explore/697484e10000000022008a53" target="_blank">【第一集】python怎么免费安装？</a><span class="note-hint">（点击可查看内容详情）</span></div>
+      <div class="note-tags"><span class="note-tag tag-ctr">干货技能教学型</span></div>
+      <span class="note-expand-btn" onclick="tog(this)">展开博为峰参考 ›</span>
+      <div class="note-detail"><div class="nd-todo-label">博为峰可以这样做</div><div class="nd-todo">「免费软件测试学习资料汇总｜第一集」——免费资源型内容吸引关注，后续再转化留资。</div></div>
+    </div>
   </div>
 </div>
 
 <footer>博为峰视频笔记策略 · IT培训赛道 · 2026-04-30</footer>
 </div>
+
+<style>
+.note-expand-btn { font-size:11px; color:#A09088; cursor:pointer; margin-top:5px; display:inline-block; user-select:none; }
+.note-expand-btn:hover { color:#6B5F5A; }
+</style>
+<script>
+function tog(btn) {
+  const d = btn.nextElementSibling;
+  const open = d.classList.toggle('open');
+  btn.textContent = open ? '收起 ‹' : '展开博为峰参考 ›';
+}
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <button onclick="dl()" style="position:fixed;bottom:24px;right:24px;background:#4A3F3A;color:#F4F0ED;border:none;border-radius:8px;padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.04em;box-shadow:0 4px 16px rgba(74,63,58,.25)">下载长图</button>
