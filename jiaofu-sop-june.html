@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6月教辅赛道大场SOP</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f3f0;
+    color: #2c2c2c;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  /* Header */
+  .header {
+    background: #3d3530;
+    color: #f5f0eb;
+    padding: 36px 40px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+  }
+  .header .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #c9b99a;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .header h1 { font-size: 26px; font-weight: 600; margin-bottom: 6px; }
+  .header .sub { font-size: 13px; color: #c9b99a; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3d3530;
+    border-left: 3px solid #9b8878;
+    padding-left: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* Card grid */
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  /* Client table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: #f0ece7;
+    color: #5a4a3a;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd6cc;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #ede9e4;
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf8f5; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-s { background: #3d3530; color: #f5f0eb; }
+  .badge-a { background: #7a6555; color: #fff; }
+  .badge-b { background: #b5a495; color: #fff; }
+  .badge-c { background: #e0d8d0; color: #6a5a4a; }
+
+  .tag-self { color: #5a8a6a; font-size: 12px; }
+  .tag-ref { color: #8a7a6a; font-size: 12px; font-style: italic; }
+
+  .highlight { color: #c05a3a; font-weight: 600; }
+  .star { color: #b08060; }
+
+  /* Gantt */
+  .gantt-wrap { overflow-x: auto; }
+  .gantt {
+    min-width: 720px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .gantt-header {
+    display: grid;
+    grid-template-columns: 110px repeat(5, 1fr);
+    background: #3d3530;
+    color: #f5f0eb;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .gantt-header > div {
+    padding: 10px 12px;
+    text-align: center;
+    border-right: 1px solid #5a4a3a;
+  }
+  .gantt-header > div:last-child { border-right: none; }
+
+  .gantt-row {
+    display: grid;
+    grid-template-columns: 110px repeat(5, 1fr);
+    border-bottom: 1px solid #ede9e4;
+  }
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-label {
+    padding: 12px;
+    background: #f5f2ee;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5a4a3a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #ddd6cc;
+  }
+  .gantt-label .time { font-size: 10px; color: #9b8878; font-weight: 400; margin-top: 2px; }
+  .gantt-cell {
+    padding: 12px 10px;
+    font-size: 12px;
+    color: #3a3030;
+    border-right: 1px solid #ede9e4;
+    vertical-align: top;
+  }
+  .gantt-cell:last-child { border-right: none; }
+  .gantt-cell.active {
+    background: #faf6f2;
+  }
+  .gantt-bar {
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .bar-1 { background: #9b8878; width: 100%; }
+  .bar-2 { background: #b5a495; width: 100%; }
+  .bar-3 { background: #c9b99a; width: 100%; }
+  .bar-4 { background: #3d3530; width: 100%; }
+  .bar-5 { background: #7a6555; width: 100%; }
+  .action-item {
+    font-size: 11px;
+    color: #5a4a3a;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .action-item::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: #9b8878;
+  }
+
+  /* 基建 */
+  .infra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .infra-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .infra-card .tier-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: #3d3530;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .infra-card.tier-a .tier-label { background: #7a6555; }
+  .infra-card.tier-b .tier-label { background: #b5a495; }
+  .infra-card.tier-c .tier-label { background: #c8c0b6; color: #5a4a3a; }
+
+  .clients-tag {
+    font-size: 12px;
+    color: #7a6555;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0ece7;
+    font-size: 12px;
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-name { color: #5a4a3a; }
+  .metric-val {
+    font-weight: 600;
+    color: #3d3530;
+  }
+  .metric-val.rule { color: #c05a3a; }
+
+  /* 投放策略 */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .strategy-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .strategy-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3d3530;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ede9e4;
+  }
+  .strategy-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .strategy-card ul li {
+    font-size: 12px;
+    color: #5a4a3a;
+    padding: 4px 0 4px 14px;
+    position: relative;
+    border-bottom: 1px solid #f5f2ee;
+  }
+  .strategy-card ul li:last-child { border-bottom: none; }
+  .strategy-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: #9b8878;
+    font-weight: 700;
+  }
+  .strategy-card ul li strong { color: #3d3530; }
+
+  /* Warning */
+  .warning-box {
+    background: #fdf6f0;
+    border: 1px solid #ddd6cc;
+    border-left: 3px solid #c9b99a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #6a5a4a;
+    margin-top: 12px;
+  }
+
+  /* 数据链路 */
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ede9e4;
+    font-size: 12px;
+  }
+  .link-row:last-child { border-bottom: none; }
+  .link-label { color: #5a4a3a; flex: 1; }
+  .link-btn {
+    display: inline-block;
+    padding: 3px 12px;
+    background: #3d3530;
+    color: #f5f0eb;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .link-btn:hover { background: #5a4a3a; }
+
+  .note { font-size: 11px; color: #9b8878; margin-top: 4px; }
+  
+  @media (max-width: 768px) {
+    .infra-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .page { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="tag">内部文件 · 2026年6月</div>
+    <h1>教辅赛道 6月大场 SOP</h1>
+    <div class="sub">适用客户：中小学教辅赛道 · 一笑名下 · 数据口径：近30天（4/26-5/25）</div>
+  </div>
+
+  <!-- 一、客户分层 -->
+  <div class="section">
+    <div class="section-title">一、客户分层与基本盘</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>档位</th>
+            <th>客户</th>
+            <th>月消耗</th>
+            <th>月GMV</th>
+            <th>杠杆比</th>
+            <th>计划/日</th>
+            <th>笔记/日</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-s">S档</span></td>
+            <td><strong>一本图书</strong></td>
+            <td>¥29w</td>
+            <td>¥69w</td>
+            <td>2.4x</td>
+            <td>174</td>
+            <td>672</td>
+            <td><span class="tag-self">✓ 一笑</span> 10广告主，大场标杆</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-s">S档</span></td>
+            <td><strong>万唯中考</strong></td>
+            <td>¥16w</td>
+            <td>¥36w</td>
+            <td>2.3x</td>
+            <td>191</td>
+            <td>462</td>
+            <td><span class="tag-self">✓ 一笑</span> 私信开口636</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-a">A档</span></td>
+            <td><strong>米尔图书</strong></td>
+            <td>¥8.7w</td>
+            <td>—</td>
+            <td>—</td>
+            <td>17</td>
+            <td>233</td>
+            <td><span class="tag-self">✓ 一笑</span> 需确认电商</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-a">A档</span></td>
+            <td><strong>斗半匠</strong></td>
+            <td>¥3.1w</td>
+            <td>¥15w</td>
+            <td>4.8x</td>
+            <td>109</td>
+            <td>158</td>
+            <td><span class="tag-ref">参照标杆</span> 抖音TOP10</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-b">B档</span></td>
+            <td><strong>混知图书</strong> <span class="star">★</span></td>
+            <td>¥3.0w</td>
+            <td>¥27w</td>
+            <td class="highlight">9x</td>
+            <td>9</td>
+            <td>112</td>
+            <td><span class="tag-self">✓ 一笑</span> 高潜，重点孵化</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-b">B档</span></td>
+            <td><strong>网师教育</strong></td>
+            <td>¥2.8w</td>
+            <td>—</td>
+            <td>—</td>
+            <td>5</td>
+            <td>82</td>
+            <td><span class="tag-self">✓ 一笑</span> 私信开口183</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-c">C档</span></td>
+            <td>佳义阳光英语</td>
+            <td>¥0.4w</td>
+            <td>—</td>
+            <td>—</td>
+            <td>1</td>
+            <td>4</td>
+            <td><span class="tag-self">✓ 一笑</span> 语言/留学，走留资</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-c">C档</span></td>
+            <td>阳光同学</td>
+            <td>¥0.09w</td>
+            <td>¥2k</td>
+            <td>—</td>
+            <td>6</td>
+            <td>62</td>
+            <td><span class="tag-self">✓ 一笑</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-c">C档</span></td>
+            <td>来川图书</td>
+            <td>¥0.02w</td>
+            <td>¥3k</td>
+            <td>—</td>
+            <td>6</td>
+            <td>13</td>
+            <td><span class="tag-self">✓ 一笑</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="warning-box">
+        教辅图书是「内容→GMV」漏斗，不走留资。C档客户日常维稳，不参与大场节奏。混知图书杠杆9x是重点孵化对象，6月目标消耗提升至¥5w+。
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、大场时间轴 甘特图 -->
+  <div class="section">
+    <div class="section-title">二、大场 Timeline（甘特图）</div>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="gantt-header">
+          <div>阶段</div>
+          <div>备战期<br><span style="font-weight:400;font-size:10px;">T-21 前</span></div>
+          <div>蓄水期<br><span style="font-weight:400;font-size:10px;">T-14 → T-7</span></div>
+          <div>冲量预热<br><span style="font-weight:400;font-size:10px;">T-7 → D</span></div>
+          <div>爆发期<br><span style="font-weight:400;font-size:10px;">D → D+10</span></div>
+          <div>长尾期<br><span style="font-weight:400;font-size:10px;">D+10 → D+20</span></div>
+        </div>
+
+        <!-- 内容种草 -->
+        <div class="gantt-row">
+          <div class="gantt-label">内容种草<div class="time">笔记铺量</div></div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-1" style="width:60%"></div>
+            <div class="action-item">确认主推品+货盘</div>
+            <div class="action-item">测试素材方向</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-2"></div>
+            <div class="action-item">S档 ≥5篇/日</div>
+            <div class="action-item">A/B档 ≥3篇/日</div>
+            <div class="action-item">预热笔记+预约开放</div>
+            <div class="action-item">搜索词卡位布局</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-3"></div>
+            <div class="action-item">S档 ≥8篇/日</div>
+            <div class="action-item">粉丝群剧透货品</div>
+            <div class="action-item">互动直播预热</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-4"></div>
+            <div class="action-item">直播切片二创</div>
+            <div class="action-item">爆品种草笔记</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-5" style="width:70%"></div>
+            <div class="action-item">口碑笔记长尾</div>
+            <div class="action-item">搜索「暑期」词收割</div>
+          </div>
+        </div>
+
+        <!-- 广告投放 -->
+        <div class="gantt-row">
+          <div class="gantt-label">广告投放<div class="time">目标切换</div></div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-1" style="width:50%"></div>
+            <div class="action-item">空耗计划清理</div>
+            <div class="action-item">基建达标检查</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-2"></div>
+            <div class="action-item">目标：互动量/预约数</div>
+            <div class="action-item">搜索词出价 ¥2-4</div>
+            <div class="action-item">品牌词守住 ¥3-5</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-3"></div>
+            <div class="action-item">直播「5s/30s观播」</div>
+            <div class="action-item">T-48h提前过审计划</div>
+            <div class="action-item">笔记+直播并行</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-4"></div>
+            <div class="action-item">切「支付ROI」目标</div>
+            <div class="action-item">一键起量（CTR≥均值）</div>
+            <div class="action-item">分时段精细出价</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-5" style="width:70%"></div>
+            <div class="action-item">商品笔记维持</div>
+            <div class="action-item">搜索拦截承接</div>
+          </div>
+        </div>
+
+        <!-- 店铺经营 -->
+        <div class="gantt-row">
+          <div class="gantt-label">店铺经营<div class="time">货盘/私域</div></div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-1" style="width:80%"></div>
+            <div class="action-item">确认爆品1-2个</div>
+            <div class="action-item">设计满减/赠品</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-2"></div>
+            <div class="action-item">开放直播预约</div>
+            <div class="action-item">粉丝群发活动机制</div>
+          </div>
+          <div class="gantt-cell active">
+            <div class="gantt-bar bar-3"></div>
+            <div class="action-item">直播间提前搭建</div>
+            <div class="action-item">福袋/抽奖钩子准备</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-4"></div>
+            <div class="action-item">开场热场→冲GMV</div>
+            <div class="action-item">预约进房率≥70%</div>
+          </div>
+          <div class="gantt-cell">
+            <div class="gantt-bar bar-5" style="width:70%"></div>
+            <div class="action-item">成交复盘（T+3）</div>
+            <div class="action-item">新客后续转化</div>
+          </div>
+        </div>
+
+      </div><!-- /gantt -->
+    </div><!-- /gantt-wrap -->
+    <div class="warning-box" style="margin-top:12px;">
+      直播冷启铁律：必须从「5s/30s观播」目标开始热场，不能直接上「支付ROI」。新建计划14天内不调价，否则模型重置。
+    </div>
+  </div>
+
+  <!-- 三、基建底线 -->
+  <div class="section">
+    <div class="section-title">三、基建底线（大场前必须达标）</div>
+    <div class="infra-grid">
+
+      <div class="infra-card">
+        <div class="tier-label">S档 · ≥10w/月</div>
+        <div class="clients-tag">一本图书 · 万唯中考</div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投笔记数</span>
+          <span class="metric-val">≥ 20篇</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投计划数</span>
+          <span class="metric-val">≥ 15条</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">单笔记绑定计划数</span>
+          <span class="metric-val rule">≤ 3（铁律）</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">直播计划提前过审</span>
+          <span class="metric-val">T-48h</span>
+        </div>
+      </div>
+
+      <div class="infra-card tier-a">
+        <div class="tier-label">A档 · 3-10w/月</div>
+        <div class="clients-tag">米尔图书 · 斗半匠（参照）</div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投笔记数</span>
+          <span class="metric-val">≥ 13篇</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投计划数</span>
+          <span class="metric-val">≥ 5条</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">单笔记绑定计划数</span>
+          <span class="metric-val rule">≤ 3（铁律）</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">直播计划提前过审</span>
+          <span class="metric-val">T-24h</span>
+        </div>
+      </div>
+
+      <div class="infra-card tier-b">
+        <div class="tier-label">B档 · 1-3w/月</div>
+        <div class="clients-tag">混知图书 · 网师教育</div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投笔记数</span>
+          <span class="metric-val">≥ 13篇</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">日均在投计划数</span>
+          <span class="metric-val">≥ 5条</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">单笔记绑定计划数</span>
+          <span class="metric-val rule">≤ 3（铁律）</span>
+        </div>
+        <div class="note" style="margin-top:8px;">当前：混知9条/网师5条，6月大场前必须补足到≥13</div>
+      </div>
+
+      <div class="infra-card tier-c">
+        <div class="tier-label">C档 · &lt;1w/月</div>
+        <div class="clients-tag">佳义阳光英语 · 阳光同学 · 来川图书</div>
+        <div class="metric-row">
+          <span class="metric-name">参与大场</span>
+          <span class="metric-val" style="color:#9b8878;">不建议</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">策略方向</span>
+          <span class="metric-val" style="color:#7a6555;">日常维稳</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">单笔记绑定计划数</span>
+          <span class="metric-val rule">≤ 3（铁律）</span>
+        </div>
+        <div class="note" style="margin-top:8px;">佳义阳光英语走留资，不走电商GMV漏斗</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 四、投放策略 -->
+  <div class="section">
+    <div class="section-title">四、关键投放策略</div>
+    <div class="strategy-grid">
+
+      <div class="strategy-card">
+        <h4>蓄水期内容方向</h4>
+        <ul>
+          <li><strong>产品力型：</strong>「这本书帮孩子提分X分」直接给结果</li>
+          <li><strong>场景型：</strong>暑假计划/错题本/开学备课，贴近日常</li>
+          <li><strong>精确时间型：</strong>「开学前28天」比模糊「暑期打卡」转化更好</li>
+          <li><strong>学段优先：</strong>小升初主战场 › 小学段 › 幼升小（新机会）</li>
+          <li><strong>搜索预埋：</strong>封面/标题带「暑假/中考/小升初/备考资料」</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <h4>爆发期直播节奏</h4>
+        <ul>
+          <li><strong>开场 0-30min：</strong>5s/30s观播目标热场，拉在线人数</li>
+          <li><strong>中期：</strong>切换「支付ROI」目标，冲GMV峰值</li>
+          <li><strong>尾段：</strong>搜索笔记投流拦截意向用户</li>
+          <li><strong>一键起量：</strong>选CTR≥均值计划，从¥300预算起，效果好再加¥500</li>
+          <li><strong>冷启铁律：</strong>不能上来就选「支付ROI」，否则冷启通过率极低</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <h4>搜索词布局</h4>
+        <ul>
+          <li><strong>品牌词：</strong>「一本图书」「万唯中考」出价 ¥3-5 守住</li>
+          <li><strong>意向词：</strong>「中考资料」「暑期学习」「小升初必刷」出价 ¥2-4</li>
+          <li><strong>节点词：</strong>「开学前/暑假作业/升学备考」提前T-14卡位</li>
+          <li><strong>竞品词：</strong>谨慎，不建议作主力</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <h4>复盘核心指标</h4>
+        <ul>
+          <li><strong>场观成交转化率：</strong>≥3%合格 / ≥5%优秀</li>
+          <li><strong>预约进房率：</strong>目标 ≥70%</li>
+          <li><strong>广告流量GPM：</strong>高于日常=投流效率高</li>
+          <li><strong>消耗节奏：</strong>蓄水期:爆发期 建议 3:7</li>
+          <li><strong>笔记重复绑定：</strong>违规占比 &lt;5% 合规 / ≥15% 🚨 严重</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 五、数据链路 -->
+  <div class="section">
+    <div class="section-title">五、数据链路</div>
+    <div class="card">
+      <div class="link-row">
+        <span class="link-label">11161 · 教辅广告主明细（全市场21 brandtag）</span>
+        <a class="link-btn" href="https://redbi.devops.xiaohongshu.com/analysis/edit?projectId=4&analysisId=57180929" target="_blank">打开</a>
+      </div>
+      <div class="link-row">
+        <span class="link-label">1922 · 教辅品牌池 GMV（51候选品牌）</span>
+        <a class="link-btn" href="https://redbi.devops.xiaohongshu.com/analysis/edit?projectId=4&analysisId=57182295" target="_blank">打开</a>
+      </div>
+      <div class="link-row">
+        <span class="link-label">11161 · 一笑名下客户广告明细（旧）</span>
+        <a class="link-btn" href="https://redbi.devops.xiaohongshu.com/analysis/edit?projectId=4&analysisId=56304665" target="_blank">打开</a>
+      </div>
+      <div class="link-row">
+        <span class="link-label">Redoc · SOP原始文档</span>
+        <a class="link-btn" href="https://docs.xiaohongshu.com/doc/6037aab40a4736747ceee803a0365c92" target="_blank">打开</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;color:#c9b99a;font-size:11px;margin-top:20px;padding-bottom:20px;">
+    数据基准：近30天 4/26-5/25 · 制作：嘿嘿+呜呜 · 2026-05-25
+  </div>
+
+</div>
+</body>
+</html>
