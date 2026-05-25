@@ -705,10 +705,10 @@
           <tr>
             <td><strong>视频·学段痛点量化</strong></td>
             <td>巨微文化</td>
-            <td style="font-size:12px;">「高三省重高走读生放学后1h能做多少事？」学段+场景+量化 · <a href="https://www.xiaohongshu.com/explore/69551c47000000001e00c16d" target="_blank" style="color:#7a6555;">查看笔记</a></td>
+            <td style="font-size:12px;">达人笔记投流：「高三省重高走读生放学后1h能做多少事？」，个人博主学习vlog，学段+场景+量化 · <a href="https://www.xiaohongshu.com/explore/69551c47000000001e00c16d" target="_blank" style="color:#7a6555;">查看笔记</a></td>
             <td>17.4%</td>
             <td><strong style="color:#5a8a6a;">63.6%</strong></td>
-            <td style="font-size:12px;">效率王。模板：学段+痛点+量化数字</td>
+            <td style="font-size:12px;">达人素材投流效率王。标题模板：学段+痛点+量化数字</td>
           </tr>
           <tr>
             <td><strong>视频·焦虑型标题</strong></td>
@@ -738,93 +738,22 @@
       </table>
     </div>
 
-    <!-- 热搜词云 -->
+    <!-- 热搜词列表 -->
     <div class="card" style="margin-bottom:16px;">
-      <div style="font-size:13px;font-weight:600;color:#3d3530;margin-bottom:4px;">社区热搜词 TOP30（近3个月）</div>
-      <div style="font-size:11px;color:#9b8878;margin-bottom:16px;">字体大小 = 搜索量，颜色 = 类别</div>
-      <div id="wordcloud" style="width:100%;height:280px;position:relative;"></div>
-      <div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;">
-        <span style="font-size:11px;color:#5a4a3a;"><span style="display:inline-block;width:10px;height:10px;background:#7a6555;border-radius:2px;margin-right:4px;"></span>数学公式/练习</span>
-        <span style="font-size:11px;color:#5a4a3a;"><span style="display:inline-block;width:10px;height:10px;background:#9b8878;border-radius:2px;margin-right:4px;"></span>英语类</span>
-        <span style="font-size:11px;color:#5a4a3a;"><span style="display:inline-block;width:10px;height:10px;background:#b5a495;border-radius:2px;margin-right:4px;"></span>按年级搜索</span>
-        <span style="font-size:11px;color:#5a4a3a;"><span style="display:inline-block;width:10px;height:10px;background:#c9b99a;border-radius:2px;margin-right:4px;"></span>语文/其他</span>
+      <div style="font-size:13px;font-weight:600;color:#3d3530;margin-bottom:12px;">社区热搜词 TOP30（近3个月）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <div style="font-size:12px;font-weight:600;color:#5a4a3a;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #ede9e4;">数学练习（最高频·刚需）</div>
+          <div style="font-size:12px;color:#3a3030;line-height:2;">资料分析公式大全 <span style="color:#9b8878;">122.5w</span><br>三角函数公式大全 <span style="color:#9b8878;">112.8w</span><br>20以内加减法练习题 <span style="color:#9b8878;">102.6w</span><br>凑十法练习题 <span style="color:#9b8878;">84.5w</span><br>100以内口算加减法 <span style="color:#9b8878;">53.9w</span><br>有余数的除法练习题 <span style="color:#9b8878;">52.7w</span><br>破十法练习题 <span style="color:#9b8878;">52.4w</span></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:#5a4a3a;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #ede9e4;">英语类</div>
+          <div style="font-size:12px;color:#3a3030;line-height:2;">英语语法课推荐 <span style="color:#9b8878;">78.0w</span><br>英语口语练习 <span style="color:#9b8878;">60.3w</span><br>英语四级 <span style="color:#9b8878;">54.7w</span><br>七/八下英语单词表 <span style="color:#9b8878;">42w</span></div>
+          <div style="font-size:12px;font-weight:600;color:#5a4a3a;margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid #ede9e4;">按年级精确搜索（家长习惯）</div>
+          <div style="font-size:12px;color:#3a3030;line-height:2;">一年级下数学每日一练 <span style="color:#9b8878;">70.2w</span><br>三年级下数学 <span style="color:#9b8878;">47.1w</span><br>二年级下数学 <span style="color:#9b8878;">39.3w</span><br>五年级下数学 <span style="color:#9b8878;">37.7w</span></div>
+        </div>
       </div>
     </div>
-    <script>
-    (function() {
-      const words = [
-        {text:'资料分析公式大全', size:122.5, cat:'math'},
-        {text:'三角函数公式大全', size:112.8, cat:'math'},
-        {text:'20以内加减法练习题', size:102.6, cat:'math'},
-        {text:'凑十法练习题', size:84.5, cat:'math'},
-        {text:'英语语法课推荐', size:78.0, cat:'eng'},
-        {text:'一年级下数学每日一练', size:70.2, cat:'grade'},
-        {text:'英语口语练习', size:60.3, cat:'eng'},
-        {text:'英语四级', size:54.7, cat:'eng'},
-        {text:'100以内口算加减法', size:53.9, cat:'math'},
-        {text:'有余数的除法练习题', size:52.7, cat:'math'},
-        {text:'破十法练习题', size:52.4, cat:'math'},
-        {text:'经典常谈考点归纳', size:49.3, cat:'chinese'},
-        {text:'一年级下生字表', size:47.4, cat:'grade'},
-        {text:'三年级下数学', size:47.1, cat:'grade'},
-        {text:'语文园地四', size:41.3, cat:'chinese'},
-        {text:'七下英语单词表', size:42.2, cat:'eng'},
-        {text:'八下英语单词表', size:40.4, cat:'eng'},
-        {text:'三年级下数学每日一练', size:39.4, cat:'grade'},
-        {text:'二年级下数学', size:39.3, cat:'grade'},
-        {text:'新视野大学英语读写2', size:39.1, cat:'eng'},
-        {text:'五年级下数学', size:37.7, cat:'grade'},
-        {text:'三年级下英语', size:36.2, cat:'grade'},
-        {text:'幼小衔接每日一练', size:36.1, cat:'grade'},
-        {text:'语文园地六课堂笔记', size:36.6, cat:'chinese'},
-        {text:'一年级下语文', size:36.0, cat:'grade'},
-        {text:'导数公式大全', size:39.7, cat:'math'},
-        {text:'数学', size:75.5, cat:'math'},
-        {text:'五年级下语文', size:34.0, cat:'chinese'},
-        {text:'二年级下语文', size:33.0, cat:'grade'},
-        {text:'幼小衔接数学', size:32.0, cat:'grade'},
-      ];
-      const colors = {math:'#7a6555', eng:'#9b8878', grade:'#b5a495', chinese:'#c9b99a'};
-      const container = document.getElementById('wordcloud');
-      const W = container.offsetWidth || 700;
-      const H = 280;
-      const minSize = 11, maxSize = 38;
-      const minVal = Math.min(...words.map(w=>w.size));
-      const maxVal = Math.max(...words.map(w=>w.size));
-      const scale = v => minSize + (v - minVal) / (maxVal - minVal) * (maxSize - minSize);
-
-      // spiral placement
-      const placed = [];
-      function overlaps(x,y,w,h) {
-        return placed.some(p => !(x+w<p.x || x>p.x+p.w || y+h<p.y || y>p.y+p.h));
-      }
-      const shuffled = [...words].sort((a,b)=>b.size-a.size);
-      shuffled.forEach(word => {
-        const fs = Math.round(scale(word.size));
-        const charW = fs * 0.65;
-        const ww = word.text.length * charW;
-        const wh = fs * 1.4;
-        let placed_ok = false;
-        let angle = 0, r = 0;
-        let cx = W/2, cy = H/2;
-        for(let i=0;i<400;i++) {
-          const x = cx + r * Math.cos(angle) - ww/2;
-          const y = cy + r * Math.sin(angle) - wh/2;
-          if(x>4 && x+ww<W-4 && y>4 && y+wh<H-4 && !overlaps(x,y,ww,wh)) {
-            placed.push({x,y,w:ww,h:wh});
-            const span = document.createElement('span');
-            span.textContent = word.text;
-            span.style.cssText = `position:absolute;left:${x}px;top:${y}px;font-size:${fs}px;color:${colors[word.cat]};font-weight:${fs>22?'600':'400'};white-space:nowrap;line-height:1;`;
-            container.appendChild(span);
-            placed_ok = true;
-            break;
-          }
-          angle += 0.4;
-          r += 0.5;
-        }
-      });
-    })();
-    </script>
 
     <!-- 6月内容方向 -->
     <div class="strategy-grid">
