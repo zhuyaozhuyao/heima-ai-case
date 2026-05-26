@@ -227,10 +227,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
   .strategy-card {
     background: #fff;
-    border-radius: 10px;
-    padding: 18px 20px;
+    border-radius: 0 10px 10px 10px;
+    padding: 24px 28px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .strategy-card h4 {
