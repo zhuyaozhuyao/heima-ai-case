@@ -618,52 +618,71 @@
   <!-- 四、投放策略 -->
   <div class="section">
     <div class="section-title">四、关键投放策略</div>
-    <div class="strategy-grid">
 
-      <div class="strategy-card">
-        <h4>蓄水期内容方向</h4>
-        <ul>
-          <li><strong>产品力型：</strong>「这本书帮孩子提分X分」直接给结果</li>
-          <li><strong>场景型：</strong>暑假计划/错题本/开学备课，贴近日常</li>
-          <li><strong>精确时间型：</strong>「开学前28天」比模糊「暑期打卡」转化更好</li>
-          <li><strong>学段优先：</strong>小升初主战场 › 小学段 › 幼升小（新机会）</li>
-          <li><strong>搜索预埋：</strong>封面/标题带「暑假/中考/小升初/备考资料」</li>
-        </ul>
-      </div>
-
-      <div class="strategy-card">
-        <h4>爆发期直播节奏</h4>
-        <ul>
-          <li><strong>开场 0-30min：</strong>5s/30s观播目标热场，拉在线人数</li>
-          <li><strong>中期：</strong>切换「支付ROI」目标，冲GMV峰值</li>
-          <li><strong>尾段：</strong>搜索笔记投流拦截意向用户</li>
-          <li><strong>一键起量：</strong>选CTR≥均值计划，从¥300预算起，效果好再加¥500</li>
-          <li><strong>冷启铁律：</strong>不能上来就选「支付ROI」，否则冷启通过率极低</li>
-        </ul>
-      </div>
-
-      <div class="strategy-card">
-        <h4>搜索词布局</h4>
-        <ul>
-          <li><strong>品牌词：</strong>「一本图书」「万唯中考」出价 ¥3-5 守住</li>
-          <li><strong>意向词：</strong>「中考资料」「暑期学习」「小升初必刷」出价 ¥2-4</li>
-          <li><strong>节点词：</strong>「开学前/暑假作业/升学备考」提前T-14卡位</li>
-          <li><strong>竞品词：</strong>谨慎，不建议作主力</li>
-        </ul>
-      </div>
-
-      <div class="strategy-card">
-        <h4>复盘核心指标</h4>
-        <ul>
-          <li><strong>场观成交转化率：</strong>≥3%合格 / ≥5%优秀</li>
-          <li><strong>预约进房率：</strong>目标 ≥70%</li>
-          <li><strong>广告流量GPM：</strong>高于日常=投流效率高</li>
-          <li><strong>消耗节奏：</strong>蓄水期:爆发期 建议 3:7</li>
-          <li><strong>笔记重复绑定：</strong>违规占比 &lt;5% 合规 / ≥15% 🚨 严重</li>
-        </ul>
-      </div>
-
+    <!-- Tab 导航 -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'tab-seed')">蓄水期内容</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-live')">爆发期直播</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-search')">搜索词布局</button>
+      <button class="tab-btn" onclick="switchTab(this,'tab-review')">复盘指标</button>
     </div>
+
+    <div id="tab-seed" class="tab-panel active">
+      <div class="strategy-card">
+        <ul>
+          <li><strong>产品力型：</strong>「这本书帮孩子提分X分」——直接给结果，不讲过程</li>
+          <li><strong>场景型：</strong>暑假计划/错题本/开学备课，贴近用户日常节奏</li>
+          <li><strong>精确时间型：</strong>「开学前28天」比模糊「暑期打卡」转化更好——确定性语言提升点击</li>
+          <li><strong>学段优先级：</strong>小升初（主战场）› 小学段 › 幼升小（新机会）› 初升高 › 高中（蓝海）</li>
+          <li><strong>搜索预埋：</strong>封面/标题带「暑假/中考/小升初/备考资料」，配合热搜词卡位</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab-live" class="tab-panel">
+      <div class="strategy-card">
+        <ul>
+          <li><strong>开场 0-30min：</strong>优化目标选「5s/30s观播」，先热场拉在线人数，不要上来冲ROI</li>
+          <li><strong>中期：</strong>切换「支付ROI」目标，冲GMV峰值，配合满减/福袋提转化</li>
+          <li><strong>尾段：</strong>搜索笔记投流拦截意向用户，承接直播外流量</li>
+          <li><strong>一键起量：</strong>选CTR≥账户均值的计划，预算从¥300起，效果好再逐步+¥500</li>
+          <li><strong>冷启铁律：</strong>新建计划14天内不调价，不能直接选「支付ROI」冷启，否则通过率极低</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab-search" class="tab-panel">
+      <div class="strategy-card">
+        <ul>
+          <li><strong>品牌词：</strong>「一本图书」「万唯中考」出价 ¥3-5，守住自己品牌词不被抢占</li>
+          <li><strong>意向词：</strong>「中考资料」「暑期学习」「小升初必刷」出价 ¥2-4，拦截高意向用户</li>
+          <li><strong>节点词：</strong>「开学前/暑假作业/升学备考」提前T-14卡位，蓄水期开始布局</li>
+          <li><strong>热搜词联动：</strong>数学练习题/凑十法/20以内加减法/英语语法课——对照热搜词TOP30选封面词</li>
+          <li><strong>竞品词：</strong>谨慎，不建议作主力，避免流量价格战</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab-review" class="tab-panel">
+      <div class="strategy-card">
+        <ul>
+          <li><strong>场观成交转化率：</strong>≥3% 合格 / ≥5% 优秀</li>
+          <li><strong>预约进房率：</strong>目标 ≥70%，低于此需排查粉丝群预热力度</li>
+          <li><strong>广告流量GPM：</strong>高于日常均值 = 投流效率高，是否需要追加预算的信号</li>
+          <li><strong>消耗节奏：</strong>蓄水期:爆发期 建议 3:7</li>
+          <li><strong>笔记重复绑定：</strong>单笔记绑定计划数违规占比 &lt;5% 合规 / ≥15% 严重，大场前必须清理</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+    function switchTab(btn, panelId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+    </script>
   </div>
 
   <!-- 五、内容策略 -->
