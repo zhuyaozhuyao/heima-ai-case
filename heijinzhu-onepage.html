@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑珍珠化妆培训 · 搜索场种草案例</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #F7F5F2;
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── 封面 ── */
+  .hero {
+    background: #1A1A1A;
+    color: #F7F5F2;
+    border-radius: 20px;
+    padding: 52px 56px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(196, 83, 58, 0.12);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(196, 83, 58, 0.07);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: #C4533A;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .hero-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-subtitle {
+    font-size: 15px;
+    color: #A8A5A0;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta-label {
+    font-size: 11px;
+    color: #6A6560;
+    letter-spacing: 0.5px;
+  }
+  .hero-meta-value {
+    font-size: 13px;
+    color: #C4C0BB;
+  }
+
+  /* ── section 标题 ── */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #C4533A;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+  }
+
+  /* ── 卡片 ── */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+  .card-sm {
+    background: #F0EDE8;
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  /* ── 网格 ── */
+  .grid-2 { display: flex; gap: 16px; }
+  .grid-2 > * { flex: 1; }
+  .grid-3 { display: flex; gap: 16px; }
+  .grid-3 > * { flex: 1; }
+
+  .mb16 { margin-bottom: 16px; }
+  .mb24 { margin-bottom: 24px; }
+  .mb32 { margin-bottom: 32px; }
+  .mb40 { margin-bottom: 40px; }
+
+  /* ── 大数字 ── */
+  .big-num {
+    font-size: 40px;
+    font-weight: 800;
+    color: #1A1A1A;
+    line-height: 1;
+  }
+  .big-num-unit {
+    font-size: 16px;
+    font-weight: 500;
+    color: #8A8580;
+    margin-left: 2px;
+  }
+  .big-num-label {
+    font-size: 12px;
+    color: #8A8580;
+    margin-top: 6px;
+  }
+  .up { color: #3A8C5C; font-weight: 700; }
+  .down-good { color: #3A8C5C; font-weight: 700; }
+  .accent { color: #C4533A; font-weight: 700; }
+
+  /* ── 客户画像 ── */
+  .profile-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .profile-tag {
+    background: #F0EDE8;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #3A3530;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .profile-tag-label {
+    font-size: 11px;
+    color: #8A8580;
+  }
+
+  /* ── 词层结构 ── */
+  .word-bar {
+    margin-bottom: 16px;
+  }
+  .word-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .word-bar-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+  .word-bar-meta {
+    font-size: 12px;
+    color: #8A8580;
+  }
+  .bar-track {
+    height: 8px;
+    background: #E8E4DE;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+  }
+  .bar-fill-accent { background: #C4533A; }
+  .bar-fill-mid { background: #C4A28A; }
+  .bar-fill-light { background: #D9C8B8; }
+  .word-bar-sub {
+    font-size: 11px;
+    color: #8A8580;
+    margin-top: 4px;
+  }
+
+  /* ── 指标对比表 ── */
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0EDE8;
+    font-size: 13px;
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-name { color: #5A5550; }
+  .metric-val { font-weight: 700; color: #1A1A1A; }
+  .metric-change { font-size: 12px; }
+
+  /* ── 路径漏斗 ── */
+  .funnel-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .funnel-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .funnel-box {
+    width: 100%;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    position: relative;
+  }
+  .funnel-box-seed {
+    background: #1A1A1A;
+    color: #F7F5F2;
+  }
+  .funnel-box-l1 { background: #C4533A; color: #fff; }
+  .funnel-box-l2 { background: #D4765A; color: #fff; }
+  .funnel-box-l3 { background: #D9906E; color: #fff; }
+  .funnel-box-l4 { background: #E0A888; color: #fff; }
+  .funnel-box-l5 { background: #E8C0A0; color: #5A3020; }
+  .funnel-tag {
+    font-size: 10px;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .funnel-pct {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .funnel-desc {
+    font-size: 10px;
+    opacity: 0.85;
+    line-height: 1.3;
+  }
+  .funnel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #C4B8A8;
+    font-size: 18px;
+    margin-top: 12px;
+  }
+
+  /* ── 路径表格 ── */
+  .path-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .path-table th {
+    background: #F0EDE8;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #5A5550;
+    font-size: 11px;
+  }
+  .path-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #F0EDE8;
+    color: #3A3530;
+    vertical-align: top;
+  }
+  .path-table tr:last-child td { border-bottom: none; }
+  .pct-badge {
+    display: inline-block;
+    background: #F0EDE8;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-weight: 700;
+    color: #C4533A;
+    font-size: 12px;
+  }
+
+  /* ── 案例展示 ── */
+  .case-box {
+    background: #F0EDE8;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .case-box:last-child { margin-bottom: 0; }
+  .case-label {
+    font-size: 11px;
+    color: #8A8580;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .case-path {
+    font-size: 12px;
+    color: #3A3530;
+    line-height: 1.7;
+  }
+  .case-hit {
+    color: #C4533A;
+    font-weight: 700;
+  }
+
+  /* ── 结论卡片 ── */
+  .conclusion-card {
+    background: #1A1A1A;
+    color: #F7F5F2;
+    border-radius: 16px;
+    padding: 32px 36px;
+  }
+  .conclusion-card .section-label { color: #C4533A; }
+  .conclusion-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(247,245,242,0.1);
+  }
+  .conclusion-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .conclusion-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: #C4533A;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+  .conclusion-text-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #F7F5F2;
+  }
+  .conclusion-text-desc {
+    font-size: 12px;
+    color: #8A8580;
+    line-height: 1.6;
+  }
+
+  /* ── 横向对比柱图 ── */
+  .compare-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .compare-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .compare-label {
+    font-size: 12px;
+    color: #5A5550;
+    width: 60px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .compare-bar-wrap {
+    flex: 1;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+  }
+  .compare-bar {
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    transition: width 0.3s;
+  }
+
+  /* ── 分隔符 ── */
+  .section-divider {
+    height: 1px;
+    background: #E8E4DE;
+    margin: 40px 0;
+  }
+
+  /* ── 导出按钮 ── */
+  .export-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: #1A1A1A;
+    color: #F7F5F2;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 9999;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .export-btn:hover { background: #C4533A; }
+
+  @media print {
+    .export-btn { display: none; }
+    body { background: #fff; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .conclusion-card, .card-sm { page-break-inside: avoid; }
+    @page { margin: 10mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ 封面 ══ -->
+  <div class="hero mb24">
+    <div class="hero-tag">CASE STUDY · 搜索场种草</div>
+    <div class="hero-title">从搜索到留资<br>黑珍珠的种草链路实证</div>
+    <div class="hero-subtitle">抓住目标用户搜索路径上的每一个节点</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">客户</span>
+        <span class="hero-meta-value">黑珍珠化妆培训学校</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">数据周期</span>
+        <span class="hero-meta-value">近 90 天（2026.03–06）</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">场域</span>
+        <span class="hero-meta-value">搜索场 100%</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">日预算</span>
+        <span class="hero-meta-value">¥3,000–5,000</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 客户画像 ══ -->
+  <div class="card mb24">
+    <div class="section-label">PROFILE</div>
+    <div class="section-title">客户画像</div>
+    <div class="profile-grid">
+      <div class="profile-tag">
+        <span class="profile-tag-label">业务类型</span>
+        线下化妆培训
+      </div>
+      <div class="profile-tag">
+        <span class="profile-tag-label">城市覆盖</span>
+        成都 / 杭州 / 南京 / 郑州 / 济南 / 广州
+      </div>
+      <div class="profile-tag">
+        <span class="profile-tag-label">营销组合</span>
+        种草 + 线索双营销并行
+      </div>
+      <div class="profile-tag">
+        <span class="profile-tag-label">客资出价</span>
+        ¥60 / 留资（低出价）
+      </div>
+      <div class="profile-tag">
+        <span class="profile-tag-label">适合复制</span>
+        多城市教培 · 高决策成本品类
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 核心数据 ══ -->
+  <div class="section-label mb16">RESULTS</div>
+  <div class="section-title" style="margin-bottom:16px;">90天核心成果</div>
+
+  <div class="grid-3 mb16">
+    <div class="card" style="text-align:center; padding:28px 20px;">
+      <div class="big-num"><span class="up">+93%</span></div>
+      <div class="big-num-label">总私信留资增长</div>
+    </div>
+    <div class="card" style="text-align:center; padding:28px 20px;">
+      <div class="big-num"><span class="down-good">-17.9%</span></div>
+      <div class="big-num-label">留资成本下降</div>
+    </div>
+    <div class="card" style="text-align:center; padding:28px 20px;">
+      <div class="big-num" style="font-size:32px;">¥202<span class="big-num-unit">/人</span></div>
+      <div class="big-num-label">当期留资成本</div>
+    </div>
+  </div>
+
+  <div class="grid-2 mb24">
+    <!-- 种草 -->
+    <div class="card">
+      <div style="font-size:12px; color:#8A8580; margin-bottom:12px; font-weight:600; letter-spacing:1px;">种草营销</div>
+      <div class="metric-row">
+        <span class="metric-name">消耗</span>
+        <span><span class="metric-val">¥11.7w</span> <span class="metric-change up">+55.5%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">私信留资</span>
+        <span><span class="metric-val">844 人</span> <span class="metric-change up">+120.4%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">留资成本</span>
+        <span class="metric-val">¥138.6 / 人</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">私信开口</span>
+        <span><span class="metric-val">1,104</span> <span class="metric-change up">+87.8%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">CTR</span>
+        <span class="metric-val">9.90%</span>
+      </div>
+    </div>
+    <!-- 线索 -->
+    <div class="card">
+      <div style="font-size:12px; color:#8A8580; margin-bottom:12px; font-weight:600; letter-spacing:1px;">线索营销</div>
+      <div class="metric-row">
+        <span class="metric-name">消耗</span>
+        <span><span class="metric-val">¥13.8w</span> <span class="metric-change up">+36.9%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">私信留资</span>
+        <span><span class="metric-val">667 人</span> <span class="metric-change up">+66.8%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">留资成本</span>
+        <span><span class="metric-val">¥202 / 人</span> <span class="metric-change down-good">-17.9%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">私信开口</span>
+        <span><span class="metric-val">1,008</span> <span class="metric-change up">+39%</span></span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">CTR</span>
+        <span><span class="metric-val">6.67%</span> <span class="metric-change up">+5.7%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 买词结构 ══ -->
+  <div class="card mb24">
+    <div class="section-label">STRATEGY</div>
+    <div class="section-title">搜索词三层结构 · 品牌词以 1/3 消耗贡献近 8 成留资</div>
+
+    <div class="word-bar">
+      <div class="word-bar-header">
+        <div>
+          <span class="word-bar-name accent">品牌词</span>
+          <span style="font-size:11px; color:#8A8580; margin-left:8px;">黑珍珠化妆学校</span>
+        </div>
+        <span class="word-bar-meta">消耗 33.6% → <span class="accent" style="font-size:14px; font-weight:800;">76.9%</span> 留资</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-fill-accent" style="width:76.9%"></div></div>
+      <div class="word-bar-sub">CTR 12.19% · 转化效率最高</div>
+    </div>
+
+    <div class="word-bar">
+      <div class="word-bar-header">
+        <div>
+          <span class="word-bar-name">泛品类词</span>
+          <span style="font-size:11px; color:#8A8580; margin-left:8px;">化妆学校推荐 / 化妆学校</span>
+        </div>
+        <span class="word-bar-meta">消耗 30.1% → <span style="font-weight:700;">16.4%</span> 留资</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-fill-mid" style="width:16.4%"></div></div>
+      <div class="word-bar-sub">CTR 16.4% · CPA ¥278–320 · 认知拓展层</div>
+    </div>
+
+    <div class="word-bar">
+      <div class="word-bar-header">
+        <div>
+          <span class="word-bar-name">城市决策词</span>
+          <span style="font-size:11px; color:#8A8580; margin-left:8px;">南京/成都 化妆学校</span>
+        </div>
+        <span class="word-bar-meta">消耗 36.3% → <span style="font-weight:700;">6.6%</span> 留资</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bar-fill-light" style="width:6.6%"></div></div>
+      <div class="word-bar-sub">CTR 9.00–9.29% · CPA ¥142–221 · 地域拦截层</div>
+    </div>
+
+    <div style="background:#FDF6F4; border-left:3px solid #C4533A; border-radius:0 8px 8px 0; padding:14px 16px; margin-top:8px; font-size:13px; color:#3A3530; line-height:1.6;">
+      品牌词以三分之一的消耗贡献近八成留资，是转化效率最高的核心词层。这不是偶然——正是泛品类词和城市词在用户上游持续铺垫，才让品牌词能够精准承接最终意向。
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 用户决策路径 ══ -->
+  <div class="mb24">
+    <div class="section-label">USER JOURNEY</div>
+    <div class="section-title">用户搜索路径还原 · 种草在决策上游三个节点提前赢得信任</div>
+
+    <!-- 漏斗 -->
+    <div class="card mb16">
+      <div style="font-size:12px; color:#8A8580; margin-bottom:20px;">留资用户搜索路径漏斗（n=1,101 人）</div>
+      <div class="funnel-wrap">
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-seed">
+            <div class="funnel-tag">种草触达</div>
+            <div class="funnel-pct" style="font-size:16px;">搜索场</div>
+            <div class="funnel-desc">搜索结果页<br>精准曝光</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">›</div>
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-l1">
+            <div class="funnel-tag">Step 1</div>
+            <div class="funnel-pct">78.3%</div>
+            <div class="funnel-desc">泛培训词<br>化妆学校/学化妆</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">›</div>
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-l2">
+            <div class="funnel-tag">Step 2</div>
+            <div class="funnel-pct">70.9%</div>
+            <div class="funnel-desc">L1 品牌泛搜<br>黑珍珠/黑珍珠化妆</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">›</div>
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-l3">
+            <div class="funnel-tag">Step 3</div>
+            <div class="funnel-pct">72.2%</div>
+            <div class="funnel-desc">L2 城市+品牌<br>成都/杭州+黑珍珠</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">›</div>
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-l4">
+            <div class="funnel-tag">Step 4</div>
+            <div class="funnel-pct">32.3%</div>
+            <div class="funnel-desc">L3 深度考察<br>好不好/真实评价/学费</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">›</div>
+        <div class="funnel-item">
+          <div class="funnel-box funnel-box-l5">
+            <div class="funnel-tag">Step 5</div>
+            <div class="funnel-pct">5.5%</div>
+            <div class="funnel-desc">L4 报名意向<br>报名/课程咨询</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:11px; color:#8A8580; margin-top:12px; padding-left:4px;">路径②：已知品牌名，直接搜索黑珍珠 170人 / 21.7%</div>
+    </div>
+
+    <!-- 路径表 -->
+    <div class="grid-2 mb16">
+      <div class="card">
+        <div style="font-size:12px; color:#8A8580; margin-bottom:14px; font-weight:600;">TOP 搜索路径分布</div>
+        <table class="path-table">
+          <thead>
+            <tr>
+              <th>搜索路径</th>
+              <th>占比</th>
+              <th>含义</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>泛培训词 → 品牌词</td>
+              <td><span class="pct-badge">24.6%</span></td>
+              <td>种草铺垫后锁品牌</td>
+            </tr>
+            <tr>
+              <td>泛培训词 → 品牌词 → 竞品</td>
+              <td><span class="pct-badge">13.4%</span></td>
+              <td>锁定后仍横向比价</td>
+            </tr>
+            <tr>
+              <td>品牌词 → 泛培训词</td>
+              <td><span class="pct-badge">13.1%</span></td>
+              <td>已知品牌，补充了解市场</td>
+            </tr>
+            <tr>
+              <td>泛培训词 → 竞品 → 品牌词</td>
+              <td><span class="pct-badge">11.6%</span></td>
+              <td>看竞品后转向黑珍珠</td>
+            </tr>
+            <tr>
+              <td>直接搜品牌词</td>
+              <td><span class="pct-badge">9.7%</span></td>
+              <td>品牌认知已建立</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div style="font-size:12px; color:#8A8580; margin-bottom:14px; font-weight:600;">竞品拦截：51.4% 用户同时在比价</div>
+        <div style="font-size:12px; color:#3A3530; margin-bottom:14px; line-height:1.6;">搜过黑珍珠品牌词后，同 session 内仍出现的竞品词 TOP5：</div>
+        <div class="compare-chart">
+          <div class="compare-row">
+            <span class="compare-label">马小花</span>
+            <div class="compare-bar-wrap">
+              <div class="compare-bar" style="width:70%; background:#C4533A;">23次</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label">毛戈平</span>
+            <div class="compare-bar-wrap">
+              <div class="compare-bar" style="width:49%; background:#C4533A;">16次</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label">化妆学校推荐</span>
+            <div class="compare-bar-wrap">
+              <div class="compare-bar" style="width:43%; background:#D4765A;">14次</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label">悦风美妆</span>
+            <div class="compare-bar-wrap">
+              <div class="compare-bar" style="width:28%; background:#D9906E;">9次</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <span class="compare-label">南京化妆</span>
+            <div class="compare-bar-wrap">
+              <div class="compare-bar" style="width:25%; background:#D9906E;">8次</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px; color:#8A8580; margin-top:12px; line-height:1.5;">种草内容在用户多校比较阶段持续入场，有效防止高意向用户流向竞品。</div>
+      </div>
+    </div>
+
+    <!-- 用户真实路径案例 -->
+    <div class="card mb24">
+      <div style="font-size:12px; color:#8A8580; margin-bottom:16px; font-weight:600;">真实用户决策路径还原（同一 session 内词序）</div>
+
+      <div class="case-box">
+        <div class="case-label">案例 A · 广州用户（泛搜化妆培训 → 多家比价 → 落地黑珍珠）</div>
+        <div class="case-path">化妆培训 → 吉田美学化妆培训好不好 → 毛戈平 → 化妆培训学校推荐广州 → 伊丽莎白培训学校 → <span class="case-hit">黑珍珠 ✓</span></div>
+      </div>
+
+      <div class="case-box">
+        <div class="case-label">案例 B · 杭州用户（反复多校比价 · 7 周持续决策 → 锁定黑珍珠）</div>
+        <div class="case-path">杭州化妆培训学校 → 吉田/杭睿/锦妍美 → 毛戈平 → 杭州锦妍美靠谱吗 → … → <span class="case-hit">黑珍珠化妆学校 ✓</span> → 黑珍珠价格</div>
+      </div>
+
+      <div class="case-box">
+        <div class="case-label">案例 C · 山东用户（从本地化妆学校搜起 → 全国横向对比 → 黑珍珠）</div>
+        <div class="case-path">邹城化妆师 → 化妆学校推荐 → 山东化妆学校推荐 → 毛戈平化妆学校 → 悉美美妆培训学校 → <span class="case-hit">黑珍珠化妆学校 ✓</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 核心洞察 ══ -->
+  <div class="conclusion-card mb24">
+    <div class="section-label">INSIGHT</div>
+    <div style="font-size:20px; font-weight:700; color:#F7F5F2; margin-bottom:24px;">为什么这套打法有效</div>
+
+    <div class="conclusion-item">
+      <div class="conclusion-num">①</div>
+      <div>
+        <div class="conclusion-text-title">留资是在「已经想买的人」里抢，种草是在「还没想好的人」里建信任</div>
+        <div class="conclusion-text-desc">只投线索，拿到的是存量意向；加投种草，是在用户决策链路上游提前布点，持续扩大增量。黑珍珠的数据证明，两者并行效率远高于单投。</div>
+      </div>
+    </div>
+
+    <div class="conclusion-item">
+      <div class="conclusion-num">②</div>
+      <div>
+        <div class="conclusion-text-title">搜索场种草直接承接决策末端流量</div>
+        <div class="conclusion-text-desc">用户主动搜「城市+化妆学校」时已处于真实决策阶段。种草笔记在搜索结果页精准出现，拦截需求最强用户——从「感兴趣」到「主动找你」的链路完整建立。</div>
+      </div>
+    </div>
+
+    <div class="conclusion-item">
+      <div class="conclusion-num">③</div>
+      <div>
+        <div class="conclusion-text-title">品牌词高效转化的底层是上游种草铺垫的结果</div>
+        <div class="conclusion-text-desc">品牌词以 33% 消耗贡献 76.9% 留资，不是品牌词本身的功劳——是泛培训词和城市词阶段的种草内容，持续让用户从「随便看看」走到「主动搜品牌」这一步。</div>
+      </div>
+    </div>
+
+    <div class="conclusion-item">
+      <div class="conclusion-num">④</div>
+      <div>
+        <div class="conclusion-text-title">三层买词结构可直接复制</div>
+        <div class="conclusion-text-desc">品牌词（认知锁定）+ 城市决策词（地域拦截）+ 泛品类词（认知拓展），精准覆盖用户认知、决策、行动三个阶段，适配所有强地域属性的教培品类。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 适合复制 ══ -->
+  <div class="card">
+    <div class="section-label">REPLICATION</div>
+    <div class="section-title">适合复制的客户类型</div>
+    <div class="grid-3">
+      <div class="card-sm">
+        <div style="font-size:13px; font-weight:700; margin-bottom:6px;">线下多城市教培</div>
+        <div style="font-size:12px; color:#6A6560; line-height:1.6;">美业 / 职业技能 / 兴趣培训，有多个城市校区，用户习惯按城市搜索比价。</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-size:13px; font-weight:700; margin-bottom:6px;">强地域属性品类</div>
+        <div style="font-size:12px; color:#6A6560; line-height:1.6;">用户搜索习惯带城市词（「南京+品类」），地域词承接本地意向流量效率极高。</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-size:13px; font-weight:700; margin-bottom:6px;">高决策成本品类</div>
+        <div style="font-size:12px; color:#6A6560; line-height:1.6;">用户有长达数周的考察期，种草内容是重要决策依据，口碑和真实评价是核心转化杠杆。</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<button class="export-btn" onclick="window.print()">导出 PDF</button>
+
+</body>
+</html>
