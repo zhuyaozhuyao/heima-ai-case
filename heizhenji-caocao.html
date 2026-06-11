@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑珍珠化妆培训 · 种草价值验证</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #0a0a0a;
+    color: #f0ece4;
+    width: 1440px;
+    min-height: 900px;
+    overflow-x: hidden;
+  }
+
+  /* 渐变背景 */
+  .bg-gradient {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(212,175,55,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 80%, rgba(180,120,180,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(20,20,25,1) 0%, #0a0a0a 100%);
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 900px;
+    padding: 32px 40px 28px;
+    gap: 24px;
+  }
+
+  /* ---- 顶部 ---- */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    padding-bottom: 20px;
+  }
+
+  .header-left {}
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #f0ece4 0%, #d4af37 60%, #f0ece4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: rgba(240,236,228,0.5);
+    margin-top: 6px;
+    font-weight: 300;
+  }
+
+  .header-tags {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 420px;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
+  .tag {
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.3);
+    color: #d4af37;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  /* ---- 主体三列 ---- */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1.2fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* 卡片 */
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .card.gold-border {
+    border-color: rgba(212,175,55,0.25);
+    background: rgba(212,175,55,0.04);
+  }
+
+  .col-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .col-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f0ece4;
+    margin-bottom: 14px;
+  }
+
+  /* 词矩阵 */
+  .word-layers { display: flex; flex-direction: column; gap: 10px; }
+  .word-layer {
+    border-left: 2px solid;
+    padding-left: 12px;
+  }
+  .word-layer.l1 { border-color: #d4af37; }
+  .word-layer.l2 { border-color: #c084fc; }
+  .word-layer.l3 { border-color: rgba(240,236,228,0.3); }
+
+  .layer-name {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(240,236,228,0.45);
+    margin-bottom: 3px;
+  }
+  .layer-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+  .layer-title.gold { color: #d4af37; }
+  .layer-title.purple { color: #c084fc; }
+  .layer-title.white { color: #f0ece4; }
+  .layer-words { font-size: 11px; color: rgba(240,236,228,0.55); line-height: 1.6; }
+  .layer-insight { font-size: 10px; color: rgba(240,236,228,0.35); margin-top: 2px; font-style: italic; }
+
+  /* 三感内容 */
+  .sense-list { display: flex; flex-direction: column; gap: 10px; }
+  .sense-item {}
+  .sense-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .sense-tag.curiosity { background: rgba(212,175,55,0.15); color: #d4af37; }
+  .sense-tag.resonance { background: rgba(192,132,252,0.15); color: #c084fc; }
+  .sense-tag.heartbeat { background: rgba(251,113,133,0.15); color: #fb7185; }
+  .sense-desc { font-size: 11px; color: rgba(240,236,228,0.6); line-height: 1.6; }
+  .sense-example {
+    font-size: 10.5px;
+    color: rgba(240,236,228,0.85);
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 4px;
+    border-left: 2px solid rgba(240,236,228,0.2);
+  }
+
+  /* 效果数字 */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .metric-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+    text-align: center;
+  }
+  .metric-card.highlight {
+    background: rgba(212,175,55,0.07);
+    border-color: rgba(212,175,55,0.2);
+  }
+  .metric-card.highlight2 {
+    background: rgba(192,132,252,0.07);
+    border-color: rgba(192,132,252,0.2);
+  }
+  .metric-label { font-size: 10px; color: rgba(240,236,228,0.4); margin-bottom: 6px; letter-spacing: 0.5px; }
+  .metric-value {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .metric-value.gold { color: #d4af37; }
+  .metric-value.purple { color: #c084fc; }
+  .metric-value.green { color: #4ade80; }
+  .metric-value.rose { color: #fb7185; }
+  .metric-change { font-size: 11px; font-weight: 500; }
+  .up { color: #4ade80; }
+  .down-good { color: #4ade80; }
+
+  .brand-word-highlight {
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 4px;
+  }
+  .bwh-label { font-size: 10px; color: rgba(240,236,228,0.4); margin-bottom: 4px; }
+  .bwh-row { display: flex; align-items: center; gap: 10px; }
+  .bwh-pct { font-size: 22px; font-weight: 900; color: #d4af37; }
+  .bwh-desc { font-size: 11px; color: rgba(240,236,228,0.6); line-height: 1.5; }
+
+  /* 桑基图区域 */
+  .sankey-wrap {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .sankey-title { font-size: 12px; font-weight: 700; color: #f0ece4; margin-bottom: 4px; }
+  .sankey-sub { font-size: 10px; color: rgba(240,236,228,0.35); margin-bottom: 12px; }
+  #sankey { width: 100%; height: 200px; }
+
+  /* 用户故事 */
+  .stories { display: flex; flex-direction: column; gap: 8px; }
+  .story-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .story-city {
+    font-size: 10px;
+    font-weight: 700;
+    color: #0a0a0a;
+    background: #d4af37;
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: nowrap;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .story-city.purple { background: #c084fc; }
+  .story-city.rose { background: #fb7185; }
+  .story-path { font-size: 10.5px; color: rgba(240,236,228,0.55); line-height: 1.6; }
+  .story-path strong { color: #4ade80; }
+
+  /* 底部 */
+  .footer {
+    border-top: 1px solid rgba(212,175,55,0.12);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-quote {
+    font-size: 13px;
+    color: rgba(240,236,228,0.55);
+    font-style: italic;
+    font-weight: 300;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+  .footer-quote em {
+    color: #d4af37;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .footer-meta { font-size: 10px; color: rgba(240,236,228,0.2); text-align: right; line-height: 1.8; }
+
+  /* 分隔线装饰 */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+  }
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="page">
+
+  <!-- 顶部 -->
+  <div class="header">
+    <div class="header-left">
+      <div class="eyebrow">Case Study · 种草价值验证</div>
+      <div class="title">用户不是被广告打动的<br>她们是自己找来的</div>
+      <div class="subtitle">黑珍珠化妆培训学校 · 搜索场种草实战复盘</div>
+    </div>
+    <div class="header-tags">
+      <span class="tag">线下化妆培训 · 6城布局</span>
+      <span class="tag">中小预算客户</span>
+      <span class="tag">搜索场 100% 投放</span>
+      <span class="tag">数据周期：近 90 天</span>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div class="main">
+
+    <!-- 左列：做了什么 -->
+    <div class="col">
+      <div class="col-label">WHAT · 做了什么</div>
+
+      <div class="card gold-border">
+        <div class="col-title">搜索场三层词矩阵</div>
+        <div class="word-layers">
+          <div class="word-layer l1">
+            <div class="layer-name">LAYER 01 · 品牌拦截</div>
+            <div class="layer-title gold">品牌词</div>
+            <div class="layer-words">「黑珍珠化妆学校」「杭州/成都/南京黑珍珠」</div>
+            <div class="layer-insight">用 33% 预算，贡献 76.9% 留资 ↑</div>
+          </div>
+          <div class="word-layer l2">
+            <div class="layer-name">LAYER 02 · 城市决策</div>
+            <div class="layer-title purple">城市决策词</div>
+            <div class="layer-words">「杭州学化妆」「南京化妆学校」「成都化妆培训」</div>
+            <div class="layer-insight">用户已在选城市选学校，就差最后一步</div>
+          </div>
+          <div class="word-layer l3">
+            <div class="layer-name">LAYER 03 · 泛兴趣覆盖</div>
+            <div class="layer-title white">泛品类词</div>
+            <div class="layer-words">「化妆学校推荐」「化妆培训学校」「化妆师怎么入行」</div>
+            <div class="layer-insight">兴趣播种，扩大认知覆盖</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="col-title">内容策略 · 三感公式</div>
+        <div class="sense-list">
+          <div class="sense-item">
+            <span class="sense-tag curiosity">好奇感 · 封面标题</span>
+            <div class="sense-example">「我是怎么从外卖员变成婚礼化妆师的」<br>「学了6个月，现在接单月入 8000+」</div>
+            <div class="sense-desc" style="margin-top:4px">精准勾住想改变职业轨迹的人，对的人一眼心动</div>
+          </div>
+          <div class="sense-item">
+            <span class="sense-tag resonance">认同感 · 真实视角</span>
+            <div class="sense-example">学员日记 / 探校 vlog / 毕业第一单婚礼</div>
+            <div class="sense-desc" style="margin-top:4px">不是广告腔，是真实感——「她和我一样」</div>
+          </div>
+          <div class="sense-item">
+            <span class="sense-tag heartbeat">心动感 · 答案前置</span>
+            <div class="sense-example">「黑珍珠学费多少？我来帮你算清楚」<br>「有人问黑珍珠靠不靠谱，我学完来说」</div>
+            <div class="sense-desc" style="margin-top:4px">搜索词里已有顾虑，内容直接给答案</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中列：效果 -->
+    <div class="col">
+      <div class="col-label">RESULT · 效果怎么样</div>
+
+      <div class="card">
+        <div class="col-title">种草牵引整体账户表现</div>
+        <div class="metrics-grid">
+          <div class="metric-card highlight">
+            <div class="metric-label">私信留资</div>
+            <div class="metric-value gold">↑93%</div>
+            <div class="metric-change up">环比上期</div>
+          </div>
+          <div class="metric-card highlight2">
+            <div class="metric-label">留资成本</div>
+            <div class="metric-value purple">↓17.9%</div>
+            <div class="metric-change down-good">环比下降</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">私信进线</div>
+            <div class="metric-value green">↑61.8%</div>
+            <div class="metric-change up">环比上期</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">私信开口</div>
+            <div class="metric-value green">↑60.9%</div>
+            <div class="metric-change up">环比上期</div>
+          </div>
+        </div>
+        <div class="metric-card" style="margin-bottom:10px">
+          <div class="metric-label">CTR 点击率</div>
+          <div class="metric-value" style="font-size:20px;color:#f0ece4">↑5.5%</div>
+          <div class="metric-change up">内容吸引力持续提升</div>
+        </div>
+      </div>
+
+      <div class="brand-word-highlight">
+        <div class="bwh-label">品牌词效率 · 最核心的数据</div>
+        <div class="bwh-row">
+          <div class="bwh-pct">76.9%</div>
+          <div class="bwh-desc">的留资<br>来自品牌词<br><span style="color:rgba(240,236,228,0.35);font-size:10px">只用了 33% 的预算</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="background:rgba(74,222,128,0.04);border-color:rgba(74,222,128,0.15)">
+        <div class="col-label" style="color:#4ade80">人群质量验证</div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:11px;color:rgba(240,236,228,0.55)">主动搜索过品牌词</span>
+            <span style="font-size:14px;font-weight:700;color:#4ade80">70.9%</span>
+          </div>
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:11px;color:rgba(240,236,228,0.55)">命中培训深度词</span>
+            <span style="font-size:14px;font-weight:700;color:#4ade80">85.6%</span>
+          </div>
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:11px;color:rgba(240,236,228,0.55)">同期比价过竞品</span>
+            <span style="font-size:14px;font-weight:700;color:#c084fc">27.8%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右列：为什么有效 -->
+    <div class="col">
+      <div class="col-label">WHY · 为什么有效</div>
+
+      <div class="sankey-wrap">
+        <div class="sankey-title">用户搜索决策路径</div>
+        <div class="sankey-sub">种草在每个路口都让她们看见你</div>
+        <svg id="sankey"></svg>
+      </div>
+
+      <div class="card">
+        <div class="col-title" style="margin-bottom:10px">三个真实用户的决策故事</div>
+        <div class="stories">
+          <div class="story-card">
+            <span class="story-city">广州</span>
+            <div class="story-path">
+              化妆培训 → 吉田美学 → 毛戈平 → 化妆培训学校推荐广州 → <strong>锁定黑珍珠 ✓</strong>
+            </div>
+          </div>
+          <div class="story-card">
+            <span class="story-city purple">杭州</span>
+            <div class="story-path">
+              杭州化妆培训 → 多家比价 → 毛戈平 → 「锦妍美靠谱吗」→ 7周决策 → <strong>锁定黑珍珠 ✓</strong>
+            </div>
+          </div>
+          <div class="story-card">
+            <span class="story-city rose">山东</span>
+            <div class="story-path">
+              邹城化妆师 → 山东化妆学校推荐 → 毛戈平 → 悉美美妆 → <strong>锁定黑珍珠 ✓</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background:rgba(212,175,55,0.05);border-color:rgba(212,175,55,0.2)">
+        <div style="font-size:11px;color:rgba(240,236,228,0.4);margin-bottom:6px;letter-spacing:1px">用户决策漏斗 L1→L4</div>
+        <div style="display:flex;gap:0;align-items:stretch">
+          <div style="flex:1;text-align:center;padding:8px 4px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:9px;color:#d4af37;margin-bottom:3px">L1</div>
+            <div style="font-size:10px;color:rgba(240,236,228,0.5)">品牌泛搜</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:8px 4px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:9px;color:#d4af37;margin-bottom:3px">L2</div>
+            <div style="font-size:10px;color:rgba(240,236,228,0.5)">城市圈定</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:8px 4px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:9px;color:#d4af37;margin-bottom:3px">L3</div>
+            <div style="font-size:10px;color:rgba(240,236,228,0.5)">口碑考察</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:8px 4px">
+            <div style="font-size:9px;color:#4ade80;margin-bottom:3px">L4</div>
+            <div style="font-size:10px;color:#4ade80;font-weight:700">留资</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="footer-quote">
+      用户在选化妆学校之前，搜索了几十次、比较了七八家、纠结了好几周。<br>
+      种草做的事，就是在这条路的<em>每一个路口</em>，都让她们看见你。
+    </div>
+    <div class="footer-meta">
+      数据来源：RedBI / 小红书灵犀<br>
+      数据周期：近 90 天<br>
+      仅供内部参考
+    </div>
+  </div>
+</div>
+
+<script>
+// 桑基图数据
+const sankeyData = {
+  nodes: [
+    { name: "泛培训词" },      // 0
+    { name: "竞品词" },        // 1
+    { name: "直接品牌搜索" },  // 2
+    { name: "黑珍珠品牌词" },  // 3
+    { name: "私信留资" },      // 4
+  ],
+  links: [
+    { source: 0, target: 3, value: 38.0 },   // 泛培训词→品牌词 (24.6+13.4)
+    { source: 1, target: 3, value: 20.4 },   // 竞品词→品牌词
+    { source: 2, target: 3, value: 9.7 },    // 直接→品牌词
+    { source: 0, target: 1, value: 11.6 },   // 泛→竞品→品牌（经过竞品）
+    { source: 3, target: 4, value: 68.1 },   // 品牌词→留资（全部）
+  ]
+};
+
+const svg = document.getElementById('sankey');
+const W = svg.parentElement.offsetWidth - 32;
+const H = 200;
+svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+svg.setAttribute('width', W);
+svg.setAttribute('height', H);
+
+const sankey = d3.sankey()
+  .nodeWidth(10)
+  .nodePadding(14)
+  .extent([[0, 8], [W, H - 8]])
+  .nodeAlign(d3.sankeyLeft);
+
+const { nodes, links } = sankey(sankeyData);
+
+const d3svg = d3.select(svg);
+
+const colors = {
+  "泛培训词": "#d4af37",
+  "竞品词": "#c084fc",
+  "直接品牌搜索": "#94a3b8",
+  "黑珍珠品牌词": "#fb7185",
+  "私信留资": "#4ade80",
+};
+
+// 链接
+d3svg.append("g")
+  .selectAll("path")
+  .data(links)
+  .join("path")
+  .attr("d", d3.sankeyLinkHorizontal())
+  .attr("fill", "none")
+  .attr("stroke", d => colors[d.source.name] || "#666")
+  .attr("stroke-width", d => Math.max(1, d.width))
+  .attr("stroke-opacity", 0.3)
+  .on("mouseover", function() { d3.select(this).attr("stroke-opacity", 0.6); })
+  .on("mouseout", function() { d3.select(this).attr("stroke-opacity", 0.3); });
+
+// 节点
+d3svg.append("g")
+  .selectAll("rect")
+  .data(nodes)
+  .join("rect")
+  .attr("x", d => d.x0)
+  .attr("y", d => d.y0)
+  .attr("width", d => d.x1 - d.x0)
+  .attr("height", d => d.y1 - d.y0)
+  .attr("fill", d => colors[d.name] || "#666")
+  .attr("rx", 3);
+
+// 节点标签
+d3svg.append("g")
+  .selectAll("text")
+  .data(nodes)
+  .join("text")
+  .attr("x", d => d.x0 < W / 2 ? d.x1 + 6 : d.x0 - 6)
+  .attr("y", d => (d.y0 + d.y1) / 2)
+  .attr("dy", "0.35em")
+  .attr("text-anchor", d => d.x0 < W / 2 ? "start" : "end")
+  .attr("fill", d => colors[d.name] || "#aaa")
+  .attr("font-size", 10)
+  .attr("font-family", "Noto Sans SC, sans-serif")
+  .attr("font-weight", 600)
+  .text(d => d.name);
+</script>
+</body>
+</html>
